@@ -48,7 +48,6 @@ namespace StudentManagement
             this.crossTabHeaderCell5 = new DevExpress.XtraReports.UI.CrossTab.XRCrossTabCell();
             this.crossTabTotalCell2 = new DevExpress.XtraReports.UI.CrossTab.XRCrossTabCell();
             this.crossTabTotalCell3 = new DevExpress.XtraReports.UI.CrossTab.XRCrossTabCell();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.TitleStyle = new DevExpress.XtraReports.UI.XRControlStyle();
@@ -56,6 +55,7 @@ namespace StudentManagement
             this.crossTabHeaderStyle1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.crossTabDataStyle1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.crossTabTotalStyle1 = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrCrossTab1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -130,7 +130,7 @@ namespace StudentManagement
             this.crossTabHeaderCell1.ColumnIndex = 0;
             this.crossTabHeaderCell1.Name = "crossTabHeaderCell1";
             this.crossTabHeaderCell1.RowIndex = 0;
-            this.crossTabHeaderCell1.Text = "TEN";
+            this.crossTabHeaderCell1.Text = "Mã SV - Họ và tên";
             // 
             // crossTabDataCell1
             // 
@@ -182,11 +182,6 @@ namespace StudentManagement
             this.crossTabTotalCell3.Name = "crossTabTotalCell3";
             this.crossTabTotalCell3.RowIndex = 2;
             // 
-            // objectDataSource1
-            // 
-            this.objectDataSource1.DataSource = typeof(StudentManagement.Model.TongKetCuoiKhoa);
-            this.objectDataSource1.Name = "objectDataSource1";
-            // 
             // TopMargin
             // 
             this.TopMargin.Name = "TopMargin";
@@ -228,6 +223,11 @@ namespace StudentManagement
             // 
             this.crossTabTotalStyle1.Name = "crossTabTotalStyle1";
             this.crossTabTotalStyle1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // objectDataSource1
+            // 
+            this.objectDataSource1.DataSource = typeof(StudentManagement.Model.TongKetCuoiKhoa);
+            this.objectDataSource1.Name = "objectDataSource1";
             // 
             // ReportSummaryFinal
             // 

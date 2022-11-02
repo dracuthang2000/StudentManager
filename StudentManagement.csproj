@@ -111,12 +111,6 @@
     <Compile Include="FormCreditClass.Designer.cs">
       <DependentUpon>FormCreditClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormFeeByClass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFeeByClass.Designer.cs">
-      <DependentUpon>FormFeeByClass.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,9 +291,6 @@
     <Compile Include="Undo\SUndo.cs" />
     <EmbeddedResource Include="FormCreditClass.resx">
       <DependentUpon>FormCreditClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFeeByClass.resx">
-      <DependentUpon>FormFeeByClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

@@ -120,7 +120,7 @@ namespace StudentManagement
             // xrLabel10
             // 
             this.xrLabel10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?malop")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?tenMonHoc")});
             this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(252.1944F, 137.2222F);
             this.xrLabel10.Multiline = true;
             this.xrLabel10.Name = "xrLabel10";
@@ -413,7 +413,7 @@ namespace StudentManagement
             // xrTableCell4
             // 
             this.xrTableCell4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[PHAI]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([PHAI] == true,\'Nữ\' , \'Nam\')")});
             this.xrTableCell4.Multiline = true;
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseTextAlignment = false;
