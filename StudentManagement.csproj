@@ -105,6 +105,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\SQLFactory.cs" />
     <Compile Include="FormCreditClass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,11 +147,9 @@
     <Compile Include="Model\KYNIENKHOA.cs" />
     <Compile Include="Model\UPDATE_CHITIET_LH.cs" />
     <Compile Include="Model\LICHHOC.cs" />
-    <Compile Include="Model\CT_DONGHOCPHI.cs" />
     <Compile Include="Model\DANGKY.cs" />
     <Compile Include="Model\GIANGVIENLTC.cs" />
     <Compile Include="Model\GIANGVIEN.cs" />
-    <Compile Include="Model\HOCPHI.cs" />
     <Compile Include="Model\HOCPHITONGHOP.cs" />
     <Compile Include="Model\INBANGDIEM.cs" />
     <Compile Include="Model\INHOCPHI.cs" />
@@ -207,6 +206,7 @@
     <Compile Include="ReportSummaryFinal.Designer.cs">
       <DependentUpon>ReportSummaryFinal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\AbsRepository.cs" />
     <Compile Include="Repositories\BaseDAL.cs" />
     <Compile Include="Repositories\DangKyDAL.cs" />
     <Compile Include="Repositories\ChuyenNganhDAL.cs" />
@@ -214,7 +214,6 @@
     <Compile Include="Repositories\LichHocDAL.cs" />
     <Compile Include="Repositories\NhanVienDAL.cs" />
     <Compile Include="Repositories\GiangVienDAL.cs" />
-    <Compile Include="Repositories\HocPhiDAL.cs" />
     <Compile Include="Repositories\LopDAL.cs" />
     <Compile Include="Repositories\LopTinChiDAL.cs" />
     <Compile Include="Repositories\MonHocDAL.cs" />

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Repositories
 {
-    public class DangKyDAL : BaseDAl
+    public class DangKyDAL
     {
         public DataResponse<bool> UpdateDangKy(List<UpdateDangKy> list, string masv)
         {
@@ -86,6 +86,7 @@ namespace StudentManagement.Repositories
                 return new DataResponeFail<bool>("Lỗi kết nối");
             try
             {
+                
                 string command = "exec [dbo].[SP_UPDATE_DIEM] @DK";
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.AddTable("@DK", "[dbo].[TYPE_UPDATE_DIEM]", list);

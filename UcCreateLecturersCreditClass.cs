@@ -13,6 +13,7 @@ using System.Linq;
 using System.ComponentModel;
 using StudentManagement.Undo;
 using DevExpress.XtraGrid.Views.Base;
+using StudentManagement.Factories;
 
 namespace StudentManagement
 {
@@ -88,6 +89,7 @@ namespace StudentManagement
         private void bEFaculty_EditValueChanged(object sender, EventArgs e)
         {
             Program.currentServer = bEFaculty.EditValue as string;
+            SQLFactory.SetCurrentServer(bEFaculty.EditValue as string);
         }
 
         private void bEAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

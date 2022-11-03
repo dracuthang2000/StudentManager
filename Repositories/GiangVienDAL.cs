@@ -117,16 +117,39 @@ namespace StudentManagement.Repositories
                 BaseDAl.DisConnect();
             }
         }
+        public DataResponse<List<GIANGVIEN>> GetListGiangVienByKhoa(string maKhoa)
+        {
+            if (!BaseDAl.Connect())
+                return new DataResponeFail<List<GIANGVIEN>>("Lỗi kết nối");
+            try
+            {
+                string command = "exec dbo.SP_GET_DS_GIANGVIEN_BY_KHOA @MAKHOA";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@MAKHOA", maKhoa);
+                var data = Program.conn.Query<GIANGVIEN>(command,parameters).ToList();
+                return new DataResponeSuccess<List<GIANGVIEN>>(data);
+            }
+            catch (Exception)
+            {
+                return new DataResponeFail<List<GIANGVIEN>>("Lỗi hệ thống");
+            }
+            finally
+            {
+                BaseDAl.DisConnect();
+            }
+        }
 
-        public DataResponse<bool> UpdateGiangVien(List<UPDATEGIANGVIEN> list)
+        public DataResponse<bool> UpdateGiangVien(List<UPDATEGIANGVIEN> list,string maKhoa)
         {
             if (!BaseDAl.Connect())
                 return new DataResponeFail<bool>("Lỗi kết nối");
             try
             {
-                string command = "exec [dbo].[SP_UPDATE_GIANGVIEN] @GIANGVIEN";
+                string command = "exec [dbo].[SP_UPDATE_GIANGVIEN] @GIANGVIEN, @MAKHOA";
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.AddTable("@GIANGVIEN", "TYPE_NEWUPDATE_GIANGVIEN", list);
+                parameters.Add("@MAKHOA", maKhoa);
+
                 Program.conn.Execute(command, parameters);
                 return new DataResponeSuccess<bool>(true);
             }
@@ -170,7 +193,7 @@ namespace StudentManagement.Repositories
                 return new DataResponeFail<List<KHOA>>("Lỗi kết nối");
             try
             {
-                string command = "exec dbo.SP_DS_KHOA";
+                string command = "exec dbo.SP_GET_DS_KHOA";
                 DynamicParameters parameters = new DynamicParameters();
                 var data = Program.conn.Query<KHOA>(command).ToList();
                 return new DataResponeSuccess<List<KHOA>>(data);

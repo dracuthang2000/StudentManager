@@ -1,4 +1,5 @@
-﻿using StudentManagement.Model;
+﻿using StudentManagement.Factories;
+using StudentManagement.Model;
 using StudentManagement.Repositories;
 using System;
 using System.Collections.Generic;
@@ -51,17 +52,17 @@ namespace StudentManagement
         {
 
            Program.serverName = Program.currentServer = (cbx.SelectedItem as ServerInfo).TENSERVER;
-            
+            SQLFactory.SetServer((cbx.SelectedItem as ServerInfo).TENSERVER);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            switch(cbxRole.EditValue)
+            SQLFactory.setUser(tbLogin.Text.Trim(), tbPassword.Text.Trim());
+            switch (cbxRole.EditValue)
             {
                 case Role.SV: LoginStudent(); break;
                 case null: return;
                 default: LoginStaff(); break;
-                
             }
         }
         void LoginStudent()

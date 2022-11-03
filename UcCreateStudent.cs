@@ -82,6 +82,7 @@ namespace StudentManagement
         private void bEFaculty_EditValueChanged(object sender, EventArgs e)
         {
             Program.currentServer = bEFaculty.EditValue as string;
+           
             InitialSchoolYear();
         }
 

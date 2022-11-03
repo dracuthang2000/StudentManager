@@ -23,6 +23,7 @@ namespace StudentManagement
         UCRegisterCreditClass uCRegisterCreditClass;
         ucUpdateGrade ucUpdateGrade;
         UcCreateLecturersCreditClass ucCreateLecturersCreditClass;
+        UcCreateLecturers ucCreateLecturers;
         public FormMain()
         {
             InitializeComponent();
@@ -300,6 +301,16 @@ namespace StudentManagement
             ucCreditClassCalendar.Dock = DockStyle.Fill;
             pnContent.Controls.Clear();
             pnContent.Controls.Add(ucCreditClassCalendar);
+        }
+
+        private void barButtonItem1_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            if (ucCreateLecturers == null)
+                ucCreateLecturers = new UcCreateLecturers();
+
+            ucCreateLecturers.Dock = DockStyle.Fill;
+            pnContent.Controls.Clear();
+            pnContent.Controls.Add(ucCreateLecturers);
         }
     }
 }

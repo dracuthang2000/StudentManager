@@ -91,9 +91,9 @@ namespace StudentManagement
 
         private void bEAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            gvCreditClass.ClearSelection();
+            gvLecturers.ClearSelection();
             this.dSSPCreditClass.SuspendBinding();
-            gvCreditClass.FocusInvalidRow();
+            gvLecturers.FocusInvalidRow();
             isInsert = true;
 
         }
@@ -103,21 +103,21 @@ namespace StudentManagement
             if (GetSelelectRow() == -1)
                 return;
 
-            string magv = gvCreditClass.GetRowCellValue(GetSelelectRow(), "MAGV").ToString();
+            string magv = gvLecturers.GetRowCellValue(GetSelelectRow(), "MAGV").ToString();
             var res = giangVienDAL.CheckGiangVien(magv);
             if (res.Response.State == ResponseState.Fail)
             {
                 // notify error
             }
 
-            if (!res.Data)
+            if (res.Data)
             {
                 //  notify error
                 if (GetSelelectRow() != -1)
                 {
-                    GIANGVIEN GIANGVIENs = (GIANGVIEN)gvCreditClass.GetRow(GetSelelectRow());
+                    GIANGVIEN GIANGVIENs = (GIANGVIEN)gvLecturers.GetRow(GetSelelectRow());
                     undo.Push(new ActionUndo(3, GetSelelectRow(), GIANGVIENs), new ActionUndo(2, GetSelelectRow(), null));
-                    gvCreditClass.DeleteSelectedRows();
+                    gvLecturers.DeleteSelectedRows();
                     return;
 
                 }
@@ -144,17 +144,18 @@ namespace StudentManagement
         }
         private void LoadData()
         {
-
-            rilkKHOA.DataSource = giangVienDAL.GetListKhoa().Data;
-            var res = giangVienDAL.GetListAllGiangVien();
+            List<KHOA> lstKhoa = giangVienDAL.GetListKhoa().Data;
+            rilkKHOA.DataSource = lstKhoa;
+            var res = giangVienDAL.GetListGiangVienByKhoa(lstKhoa[0].MAKHOA);
+            MAKHOA = lstKhoa[0].MAKHOA;
             if (res.Response.State == ResponseState.Fail)
             {
                 // Notify error
             }
 
-            gcCreditClass.DataSource = new BindingList<GIANGVIEN>(res.Data);
+            gcLecturers.DataSource = new BindingList<GIANGVIEN>(res.Data);
             //gcCreditClass.DataSource = res.Data;
-            gvCreditClass.FocusInvalidRow();
+            gvLecturers.FocusInvalidRow();
 
 
         }
@@ -169,9 +170,9 @@ namespace StudentManagement
                 // Notify error
             }
 
-            gcCreditClass.DataSource = new BindingList<SINHVIEN>(res.Data);
+            gcLecturers.DataSource = new BindingList<SINHVIEN>(res.Data);
             //gcCreditClass.DataSource = res.Data;
-            gvCreditClass.FocusInvalidRow();
+            gvLecturers.FocusInvalidRow();
         }
 
         private void bESchoolYear_EditValueChanged(object sender, EventArgs e)
@@ -196,7 +197,7 @@ namespace StudentManagement
 
         private int GetSelelectRow()
         {
-            int[] rows = gvCreditClass.GetSelectedRows();
+            int[] rows = gvLecturers.GetSelectedRows();
             if (rows.Length == 0)
                 return -1;
             return rows[0];
@@ -221,11 +222,11 @@ namespace StudentManagement
             d = MessageBox.Show("Bạn có chắc là muốn lưu không?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (d == DialogResult.Yes)
             {
-                gvCreditClass.FocusInvalidRow();
+                gvLecturers.FocusInvalidRow();
                 List<UPDATEGIANGVIEN> listUpdate;
-                var binding = (BindingList<GIANGVIEN>)gvCreditClass.DataSource;
+                var binding = (BindingList<GIANGVIEN>)gvLecturers.DataSource;
                 listUpdate = binding.ToList().Select(x => new UPDATEGIANGVIEN(x)).ToList();
-                var res = giangVienDAL.UpdateGiangVien(listUpdate);
+                var res = giangVienDAL.UpdateGiangVien(listUpdate,MAKHOA);
                 if (res.Response.State == ResponseState.Fail)
                 {
                     MessageBox.Show("Lưu thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -248,7 +249,7 @@ namespace StudentManagement
             KHOA KHOAs = ((List<KHOA>)rilkKHOA.DataSource).FirstOrDefault(x => x.MAKHOA == e.NewValue.ToString());
             if (KHOAs == null)
                 return;
-            gvCreditClass.SetRowCellValue(gvCreditClass.FocusedRowHandle, "TENKHOA", KHOAs.TENKHOA);
+            gvLecturers.SetRowCellValue(gvLecturers.FocusedRowHandle, "TENKHOA", KHOAs.TENKHOA);
         }
 
         private void gcCreditClass_Click(object sender, EventArgs e)
@@ -262,9 +263,11 @@ namespace StudentManagement
         }
         private void gvCreditClass_InitNewRow(object sender, InitNewRowEventArgs e)
         {
+            GridView view = sender as GridView;
             if (stateUndo)
                 return;
-            undo.Push(new ActionUndo(2, gvCreditClass.RowCount, null), new ActionUndo(3, GetSelelectRow(), new LOPTINCHI()));
+            undo.Push(new ActionUndo(2, gvLecturers.RowCount, null), new ActionUndo(3, GetSelelectRow(), new LOPTINCHI()));
+            view.SetRowCellValue(e.RowHandle, "MAKHOA", MAKHOA);
         }
 
         private void bEUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -286,21 +289,21 @@ namespace StudentManagement
             {
                 case 1:
                     GridCell cell = action.obj as GridCell;
-                    gvCreditClass.SetRowCellValue(gvCreditClass.GetRowHandle(cell.RowHandle), cell.Column, action.value);
-                    Console.WriteLine(gvCreditClass.GetRowCellValue(gvCreditClass.GetRowHandle(cell.RowHandle), cell.Column));
-                    gvCreditClass.FocusedRowHandle = cell.RowHandle;
+                    gvLecturers.SetRowCellValue(gvLecturers.GetRowHandle(cell.RowHandle), cell.Column, action.value);
+                    Console.WriteLine(gvLecturers.GetRowCellValue(gvLecturers.GetRowHandle(cell.RowHandle), cell.Column));
+                    gvLecturers.FocusedRowHandle = cell.RowHandle;
                     break;
                 case 2:
                     int row = (int)action.obj;
-                    gvCreditClass.DeleteRow(row - 1);
+                    gvLecturers.DeleteRow(row - 1);
                     break;
                 case 3:
 
-                    List<GIANGVIEN> gIANGVIENs = (gvCreditClass.DataSource as BindingList<GIANGVIEN>).ToList();
+                    List<GIANGVIEN> gIANGVIENs = (gvLecturers.DataSource as BindingList<GIANGVIEN>).ToList();
                     gIANGVIENs.Insert(int.Parse(action.obj.ToString()), action.value as GIANGVIEN);
 
-                    gcCreditClass.DataSource = new BindingList<GIANGVIEN>(gIANGVIENs);
-                    gvCreditClass.FocusedRowHandle = int.Parse(action.obj.ToString());
+                    gcLecturers.DataSource = new BindingList<GIANGVIEN>(gIANGVIENs);
+                    gvLecturers.FocusedRowHandle = int.Parse(action.obj.ToString());
                     break;
             }
             stateUndo = false;
@@ -366,27 +369,55 @@ namespace StudentManagement
         private void gvCreditClass_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             GridView gridView = sender as GridView;
+            List<GIANGVIEN> temp = (gvLecturers.DataSource as BindingList<GIANGVIEN>).ToList();
             if (gridView.GetRowCellValue(e.RowHandle, colMAGV) == null)
             {
                 e.Valid = false;
-                e.ErrorText = "MASV not null!";
+                e.ErrorText = "MAGV không để trống";
             }
 
             if (gridView.GetRowCellValue(e.RowHandle, colHO) == null)
             {
                 e.Valid = false;
-                e.ErrorText = "HO is not null";
+                e.ErrorText = "HO không để trống";
             }
             if (gridView.GetRowCellValue(e.RowHandle, colTEN) == null)
             {
                 e.Valid = false;
-                e.ErrorText = "TEN is not null!";
+                e.ErrorText = "TEN không để trống";
             }
             if (gridView.GetRowCellValue(e.RowHandle, colMAKHOA) == null)
             {
                 e.Valid = false;
-                e.ErrorText = "MAKHOA is not null!";
-            }
+                e.ErrorText = "MAKHOA không để trống";
+            }    
+            if(gridView.GetRowCellValue(e.RowHandle, colMAGV) != null)
+            {
+                if(temp.Where(gv=>gv.MAGV.Trim() == gridView.GetRowCellValue(e.RowHandle, colMAGV).ToString()).Count() >= 2)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "MAGV đã tồn tại";
+                }
+                if (MAKHOA.Trim().Equals("CNTT"))
+                {
+                    if(giangVienDAL.GetListGiangVienByKhoa("VT").Data
+                        .Where(gv=>gv.MAGV.Trim() == gridView.GetRowCellValue(e.RowHandle, colMAGV).ToString()).Count() > 0)
+                    {
+                        e.Valid = false;
+                        e.ErrorText = "MAGV đã tồn tại";
+                    }
+                }
+                else
+                {
+                    if (giangVienDAL.GetListGiangVienByKhoa("CNTT").Data
+                                            .Where(gv => gv.MAGV.Trim() == gridView.GetRowCellValue(e.RowHandle, colMAGV).ToString()).Count() > 0)
+                    {
+                        e.Valid = false;
+                        e.ErrorText = "MAGV đã tồn tại";
+                    }
+                }
+
+            }           
         }
     }
 }
