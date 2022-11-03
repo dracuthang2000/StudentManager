@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using StudentManagement.Factories;
 using StudentManagement.Model;
 using StudentManagement.Repositories;
 using System;
@@ -57,6 +58,8 @@ namespace StudentManagement
         private void beKhoa_EditValueChanged(object sender, EventArgs e)
         {
             Program.currentServer = beKhoa.EditValue as string;
+            SQLFactory.SetCurrentServer(beKhoa.EditValue as string);
+
         }
     }
 }

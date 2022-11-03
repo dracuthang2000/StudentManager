@@ -48,22 +48,24 @@ namespace StudentManagement.Factories
             }
             throw new Exception("Cannot open connection");
         }
-        public static void SetServer(string serverName)
+        public static void SetServer(string serverName, bool notifyChange = true)
         {
             thisServerName = serverName;
+            if(notifyChange)
             foreach (var repository in _listSub)
             {
                 repository.OnDbChange();
             }
         }
 
-        public static void SetCurrentServer(string serverName)
+        public static void SetCurrentServer(string serverName, bool notifyChange = true)
         {
             currentServer = serverName;
-            foreach (var repository in _listSub)
-            {
-                repository.OnDbChange();
-            }
+            if (notifyChange)
+                foreach (var repository in _listSub)
+                {
+                    repository.OnDbChange();
+                }
         }
         public static void RegisterSub(AbsRepository r) => _listSub.Add(r);
         public static void UnRegisterSub(AbsRepository r) => _listSub.Remove(r);

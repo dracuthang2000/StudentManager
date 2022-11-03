@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using StudentManagement.Factories;
 using StudentManagement.Model;
 using StudentManagement.Repositories;
 using System;
@@ -102,6 +103,8 @@ namespace StudentManagement
         private void barEditItem3_EditValueChanged(object sender, EventArgs e)
         {
             Program.currentServer = beKhoa.EditValue.ToString();
+            SQLFactory.SetCurrentServer(beKhoa.EditValue as string);
+
         }
     }
 }

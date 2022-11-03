@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using StudentManagement.Factories;
 using StudentManagement.Model;
 using StudentManagement.Repositories;
 using System;
@@ -112,6 +113,8 @@ namespace StudentManagement
         private void bEFaculty_EditValueChanged(object sender, EventArgs e)
         {
             Program.currentServer = bEFaculty.EditValue as string;
+            SQLFactory.SetCurrentServer(bEFaculty.EditValue as string);
+
         }
     }
 }

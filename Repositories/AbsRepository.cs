@@ -11,9 +11,10 @@ namespace StudentManagement.Repositories
     public abstract class AbsRepository : IDisposable
     {
         protected SqlConnection conn;
-        public AbsRepository()
+        public AbsRepository(bool lazy = false)
         {
-            conn = SQLFactory.GetConnection();
+            if(!lazy)
+                conn = SQLFactory.GetConnection();
             SQLFactory.RegisterSub(this);
         }
         public void Dispose()
@@ -22,7 +23,7 @@ namespace StudentManagement.Repositories
             SQLFactory.UnRegisterSub(this);
         }
 
-        public void OnDbChange() {
+        public virtual void OnDbChange() {
             if (conn.State == System.Data.ConnectionState.Open) conn.Close();
             conn = SQLFactory.GetConnection();
         }

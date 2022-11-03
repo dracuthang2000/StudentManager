@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Repositories
 {
-    class NhanVienDAL
+    class NhanVienDAL: AbsRepository
     {
         public DataResponse<List<NHANVIEN>> getListNhanVien()
         {
-            if (!BaseDAl.Connect())
-                return new DataResponeFail<List<NHANVIEN>>("Lỗi kết nối");
+
             try
             {
                 string command = "exec dbo.SP_DS_NHANVIEN";
@@ -25,10 +24,6 @@ namespace StudentManagement.Repositories
             catch (Exception)
             {
                 return new DataResponeFail<List<NHANVIEN>>("Lỗi hệ thống");
-            }
-            finally
-            {
-                BaseDAl.DisConnect();
             }
         }       
     }

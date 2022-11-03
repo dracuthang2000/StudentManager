@@ -52,7 +52,8 @@ namespace StudentManagement
         {
 
            Program.serverName = Program.currentServer = (cbx.SelectedItem as ServerInfo).TENSERVER;
-            SQLFactory.SetServer((cbx.SelectedItem as ServerInfo).TENSERVER);
+           SQLFactory.SetServer((cbx.SelectedItem as ServerInfo).TENSERVER, false);
+           SQLFactory.SetCurrentServer((cbx.SelectedItem as ServerInfo).TENSERVER, false);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

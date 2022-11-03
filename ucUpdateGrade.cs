@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
+using StudentManagement.Factories;
 using StudentManagement.Model;
 using StudentManagement.Repositories;
 using System;
@@ -165,6 +166,8 @@ namespace StudentManagement
         private void beFaculty_EditValueChanged(object sender, EventArgs e)
         {
             Program.currentServer = (string)beFaculty.EditValue;
+            SQLFactory.SetCurrentServer((string)beFaculty.EditValue );
+
         }
 
         private void gvUpdateGrade_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
