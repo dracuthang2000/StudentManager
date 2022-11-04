@@ -44,6 +44,22 @@ namespace StudentManagement.Repositories
             }
         }
 
+        public DataResponse<List<GIANGVIEN>> GetListGiangVienKhaNangGiangMonHoc()
+        {
+            try
+            {
+                string command = "exec [dbo].[SP_DS_GIANGVIEN_KHANANGGIANG]";
+                DynamicParameters parameters = new DynamicParameters();
+                var data = conn.Query<GIANGVIEN>(command).ToList();
+                return new DataResponeSuccess<List<GIANGVIEN>>(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<List<GIANGVIEN>>("Lỗi hệ thống");
+            }
+        }
+
         public DataResponse<List<GIANGVIEN>> GetListGiangVienLopTC()
         {
             try
@@ -131,6 +147,24 @@ namespace StudentManagement.Repositories
                 string command = "select [dbo].[FUNC_KT_MAGV_KHOANGOAI] (@MAGV)";
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@MAGV", magv);
+                var res = conn.ExecuteScalar<bool>(command, parameters);
+                return new DataResponeSuccess<bool>(res);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<bool>("Lỗi hệ thống");
+            }
+        }
+
+        public DataResponse<bool> CheckGiangVienDayLTC(string magv,string mamh)
+        {
+            try
+            {
+                string command = "select [dbo].[FUNC_KT_MAGV_EXIST_DAY_LTC] (@MAGV,@mamh)";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@MAGV", magv);
+                parameters.Add("@mamh", mamh);
                 var res = conn.ExecuteScalar<bool>(command, parameters);
                 return new DataResponeSuccess<bool>(res);
             }

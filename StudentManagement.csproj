@@ -124,6 +124,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPrintDiemSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrintDiemSV.Designer.cs">
+      <DependentUpon>FormPrintDiemSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrintStudentTranscripts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,8 @@
       <DependentUpon>FormPrintDiemLTC.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\CHUYENNGANH.cs" />
+    <Compile Include="Model\DIEMSINHVIEN.cs" />
+    <Compile Include="Model\KHANANGGIANG.cs" />
     <Compile Include="Model\KYNIENKHOA.cs" />
     <Compile Include="Model\UPDATE_CHITIET_LH.cs" />
     <Compile Include="Model\LICHHOC.cs" />
@@ -152,7 +160,6 @@
     <Compile Include="Model\GIANGVIEN.cs" />
     <Compile Include="Model\HOCPHITONGHOP.cs" />
     <Compile Include="Model\INBANGDIEM.cs" />
-    <Compile Include="Model\INHOCPHI.cs" />
     <Compile Include="Model\KHOA.cs" />
     <Compile Include="Model\KHOAHOC.cs" />
     <Compile Include="Model\LOP.cs" />
@@ -181,6 +188,12 @@
     </Compile>
     <Compile Include="ReportCreditClass.Designer.cs">
       <DependentUpon>ReportCreditClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDiemSV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportDiemSV.Designer.cs">
+      <DependentUpon>ReportDiemSV.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportStudentTranscripts.cs">
       <SubType>Component</SubType>
@@ -298,6 +311,9 @@
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPrintDiemSV.resx">
+      <DependentUpon>FormPrintDiemSV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPrintStudentTranscripts.resx">
       <DependentUpon>FormPrintStudentTranscripts.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,6 +336,9 @@
     </Compile>
     <EmbeddedResource Include="ReportCreditClass.resx">
       <DependentUpon>ReportCreditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportDiemSV.resx">
+      <DependentUpon>ReportDiemSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportStudentTranscripts.resx">
       <DependentUpon>ReportStudentTranscripts.cs</DependentUpon>
@@ -373,6 +392,85 @@
       <DependentUpon>ucUpdateGrade.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\FormAddLogin.datasource" />
+    <None Include="Properties\DataSources\FormCreditClass.datasource" />
+    <None Include="Properties\DataSources\FormLogin.datasource" />
+    <None Include="Properties\DataSources\FormMain.datasource" />
+    <None Include="Properties\DataSources\FormPrintDiemLTC.datasource" />
+    <None Include="Properties\DataSources\FormPrintStudentTranscripts.datasource" />
+    <None Include="Properties\DataSources\FormReportStudentCreditClass.datasource" />
+    <None Include="Properties\DataSources\FormReportSumaryFinal.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\ReportCreditClass.datasource" />
+    <None Include="Properties\DataSources\ReportDiemLTC.datasource" />
+    <None Include="Properties\DataSources\ReportStudentTranscripts.datasource" />
+    <None Include="Properties\DataSources\ReportSudentInCreditClass.datasource" />
+    <None Include="Properties\DataSources\ReportSummaryFinal.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Factories.SQLFactory.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Helper.ConvertMoney.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.CHUYENNGANH.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.DANGKY.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.DataResponeFail`1[].datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.DataResponeSuccess`1[].datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.DataResponse`1[].datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.GIANGVIEN.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.GIANGVIENLTC.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.HOCPHITONGHOP.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.INBANGDIEM.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.KHANANGGIANG.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.KHOA.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.KHOAHOC.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.KHOALOP.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.KYNIENKHOA.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.LICHHOC.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.LOP.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.LOPTINCHI.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.MONHOC.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.NHANVIEN.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.REPORTDIEMLTC.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.Response.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.ResponseFail.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.ResponseSuccess.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.Role.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.ServerInfo.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.SINHVIEN.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.TongKetCuoiKhoa.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.UpdateDangKy.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.UPDATEGIANGVIEN.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.UpdateGrade.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.UPDATELOP.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.UpdateLopTinChi.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.UPDATEMONHOC.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.UPDATESINHVIEN.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.UPDATE_CHITIET_LH.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Model.UserInfo.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.AbsRepository.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.BaseDAl.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.ChuyenNganhDAL.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.DangKyDAL.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.GiangVienDAL.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.KyNienKhoaDAL.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.LichHocDAL.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.LopDAL.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.LopTinChiDAL.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.MonHocDAL.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.NhanVienDAL.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.SinhVienDAL.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.SupportDAL.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Repositories.UserDAL.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Undo.ActionUndo.datasource" />
+    <None Include="Properties\DataSources\StudentManagement.Undo.SUndo.datasource" />
+    <None Include="Properties\DataSources\UCAddLogin.datasource" />
+    <None Include="Properties\DataSources\UcCreateClass.datasource" />
+    <None Include="Properties\DataSources\UcCreateLecturers.datasource" />
+    <None Include="Properties\DataSources\UcCreateLecturersCreditClass.datasource" />
+    <None Include="Properties\DataSources\UcCreateStudent.datasource" />
+    <None Include="Properties\DataSources\UcCreateSubject.datasource" />
+    <None Include="Properties\DataSources\UcCreditClassCalendar.datasource" />
+    <None Include="Properties\DataSources\UCRegisterCreditClass.datasource" />
+    <None Include="Properties\DataSources\ucUpdateGrade.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

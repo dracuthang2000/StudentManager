@@ -128,5 +128,22 @@ namespace StudentManagement.Repositories
                 return new DataResponeFail<bool>("Lỗi hệ thống");
             }
         }
+
+        public DataResponse<List<DIEMSINHVIEN>> inDiemSV(string masv)
+        {
+            try
+            {
+                string command = "exec dbo.SP_DS_DIEM_SINHVIEN_BY_MASV @masv";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@masv", masv);
+                var data = conn.Query<DIEMSINHVIEN>(command,parameters).ToList();
+                return new DataResponeSuccess<List<DIEMSINHVIEN>>(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<List<DIEMSINHVIEN>>("Lỗi hệ thống");
+            }
+        }
     }
 }

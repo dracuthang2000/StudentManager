@@ -25,7 +25,11 @@ namespace StudentManagement
         private GiangVienDAL giangVienDAL;
         private MonHocDAL monHocDAL;
         private SUndo undo;
+        private List<GIANGVIEN> lstGiangVien;
         private bool stateUndo;
+        private string maMhIsChanged;
+        private string initHoTen;
+        private bool selectGvDelete = false;
         public UcCreateSubject()
         {
             InitializeComponent();
@@ -56,7 +60,7 @@ namespace StudentManagement
 
 
             bESemester.EditValue = 1;
-
+            gcGiangVien.Enabled = false;
 
             LoadData();
             //lkTeacher.selected
@@ -79,9 +83,9 @@ namespace StudentManagement
 
         private void bEAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            gvCreditClass.ClearSelection();
+            gvSubject.ClearSelection();
             this.dSSPCreditClass.SuspendBinding();
-            gvCreditClass.FocusInvalidRow();
+            gvSubject.FocusInvalidRow();
             isInsert = true;
 
         }
@@ -90,32 +94,49 @@ namespace StudentManagement
         {
             if (GetSelelectRow() == -1)
                 return;
-
-            string mamh = gvCreditClass.GetRowCellValue(GetSelelectRow(), "MAMH").ToString();
-            var res = monHocDAL.CheckMonHoc(mamh);
-
-            if (res.Response.State == ResponseState.Fail)
+            if(gvGiangVien.GetFocusedRowCellValue("MAGV") != null
+                && gvGiangVien.GetFocusedRowCellValue("MAMH") != null && selectGvDelete)
             {
-                // notify error
-            }
-
-            if (res.Data)
-            {
-                //  notify error
-                if (GetSelelectRow() != -1)
+                var checkGVDay = giangVienDAL.CheckGiangVienDayLTC(gvGiangVien.GetFocusedRowCellValue("MAGV").ToString(), gvGiangVien.GetFocusedRowCellValue("MAMH").ToString()).Data;
+                if (!checkGVDay)
                 {
-                    MONHOC monhoc = (MONHOC)gvCreditClass.GetRow(GetSelelectRow());
-                    undo.Push(new ActionUndo(3, GetSelelectRow(), monhoc), new ActionUndo(2, GetSelelectRow(), null));
-                    gvCreditClass.DeleteSelectedRows();
-                    MessageBox.Show("Xóa thành công!");
-                    return;
+                    lstGiangVien.RemoveAll(gv => gv.MAMH.Trim() == gvGiangVien.GetFocusedRowCellValue("MAMH").ToString().Trim()
+                     && gv.MAGV.Trim() == gvGiangVien.GetFocusedRowCellValue("MAGV").ToString().Trim());
+                    gvGiangVien.DeleteSelectedRows();
+                    MessageBox.Show("Xóa giảng viên thành công!", "DELETE SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại. Mã giảng viên này đã được dùng ở nơi nào đó rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            if (!selectGvDelete)
             {
-                MessageBox.Show("Xóa thất bại. Mã môn học này đã được dùng ở nơi nào đó rồi","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                string mamh = gvSubject.GetRowCellValue(GetSelelectRow(), "MAMH").ToString();
+                var res = monHocDAL.CheckMonHoc(mamh);
+                if (res.Response.State == ResponseState.Fail)
+                {
+                    // notify error
+                }
+                if (res.Data)
+                {
+                    //  notify error
+                    if (GetSelelectRow() != -1)
+                    {
+                        MONHOC monhoc = (MONHOC)gvSubject.GetRow(GetSelelectRow());
+                        undo.Push(new ActionUndo(3, GetSelelectRow(), monhoc), new ActionUndo(2, GetSelelectRow(), null));
+                        gvSubject.DeleteSelectedRows();
+                        lstGiangVien.RemoveAll(gv => gv.MAMH.Trim() == monhoc.MAMH.Trim());
+                        gcGiangVien.DataSource = null;
+                        MessageBox.Show("Xóa thành công!", "DELETE SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại. Mã môn học này đã được dùng ở nơi nào đó rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
 
         }
 
@@ -130,14 +151,16 @@ namespace StudentManagement
         {
 
             var res = monHocDAL.GetListMonHoc();
+            lstGiangVien = giangVienDAL.GetListGiangVienKhaNangGiangMonHoc().Data;
             if (res.Response.State == ResponseState.Fail)
             {
                 // Notify error
             }
 
-            gcCreditClass.DataSource = new BindingList<MONHOC>(res.Data);
+            gcSubject.DataSource = new BindingList<MONHOC>(res.Data);
+            grkGiangVien.DataSource = giangVienDAL.GetListAllGiangVien().Data;
             //gcCreditClass.DataSource = res.Data;
-            gvCreditClass.FocusInvalidRow();
+            gvSubject.FocusInvalidRow();
         }
 
         private void bESchoolYear_EditValueChanged(object sender, EventArgs e)
@@ -155,12 +178,12 @@ namespace StudentManagement
 
         private void gvCreditClass_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-
+            GridView view = sender as GridView;
         }
 
         private int GetSelelectRow()
         {
-            int[] rows = gvCreditClass.GetSelectedRows();
+            int[] rows = gvSubject.GetSelectedRows();
             if (rows.Length == 0)
                 return -1;
             return rows[0];
@@ -185,11 +208,12 @@ namespace StudentManagement
             d = MessageBox.Show("Bạn có chắc là muốn lưu không?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (d == DialogResult.Yes)
             {
-                gvCreditClass.FocusInvalidRow();
+                gvSubject.FocusInvalidRow();
                 List<UPDATEMONHOC> listUpdate;
-                var binding = (BindingList<MONHOC>)gvCreditClass.DataSource;
+                List<KHANANGGIANG> lstKNG = lstGiangVien.Select(gv => new KHANANGGIANG(gv)).ToList();
+                var binding = (BindingList<MONHOC>)gvSubject.DataSource;
                 listUpdate = binding.ToList().Select(x => new UPDATEMONHOC(x)).ToList();
-                var res = monHocDAL.UpdateMonHoc(listUpdate);
+                var res = monHocDAL.UpdateMonHoc(listUpdate,lstKNG);
                 if (res.Response.State == ResponseState.Fail)
                 {
                     MessageBox.Show("Lưu thất bại","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -206,19 +230,33 @@ namespace StudentManagement
 
         private void gcCreditClass_Click(object sender, EventArgs e)
         {
-
+            GridView view = sender as GridView;
+            gcGiangVien.Enabled = true;
+            selectGvDelete = false;
+            MONHOC mh = (MONHOC)gvSubject.GetRow(GetSelelectRow());
+            if (mh == null)
+            {
+                gcGiangVien.DataSource = null;
+                return;
+            }
+            gcGiangVien.DataSource = new BindingList<GIANGVIEN>(lstGiangVien.Where(gv => gv.MAMH.Trim() == mh.MAMH.Trim()).ToList());
+            maMhIsChanged = mh.MAMH;
         }
 
         private void gvCreditClass_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-
+            GridView view = sender as GridView;
+            if(e.Column.FieldName == "MAMH")
+            {
+                maMhIsChanged = view.GetRowCellValue(e.RowHandle, "MAMH").ToString();
+            }
         }
 
         private void gvCreditClass_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             if (stateUndo)
                 return;
-            undo.Push(new ActionUndo(2, gvCreditClass.RowCount, null), new ActionUndo(3, GetSelelectRow(), new LOPTINCHI()));
+            undo.Push(new ActionUndo(2, gvSubject.RowCount, null), new ActionUndo(3, GetSelelectRow(), new LOPTINCHI()));
         }
 
         private void bEUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -240,21 +278,21 @@ namespace StudentManagement
             {
                 case 1:
                     GridCell cell = action.obj as GridCell;
-                    gvCreditClass.SetRowCellValue(gvCreditClass.GetRowHandle(cell.RowHandle), cell.Column, action.value);
-                    Console.WriteLine(gvCreditClass.GetRowCellValue(gvCreditClass.GetRowHandle(cell.RowHandle), cell.Column));
-                    gvCreditClass.FocusedRowHandle = cell.RowHandle;
+                    gvSubject.SetRowCellValue(gvSubject.GetRowHandle(cell.RowHandle), cell.Column, action.value);
+                    Console.WriteLine(gvSubject.GetRowCellValue(gvSubject.GetRowHandle(cell.RowHandle), cell.Column));
+                    gvSubject.FocusedRowHandle = cell.RowHandle;
                     break;
                 case 2:
                     int row = (int)action.obj;
-                    gvCreditClass.DeleteRow(row - 1);
+                    gvSubject.DeleteRow(row - 1);
                     break;
                 case 3:
 
-                    List<MONHOC> mONHOCs = (gvCreditClass.DataSource as BindingList<MONHOC>).ToList();
+                    List<MONHOC> mONHOCs = (gvSubject.DataSource as BindingList<MONHOC>).ToList();
                     mONHOCs.Insert(int.Parse(action.obj.ToString()), action.value as MONHOC);
 
-                    gcCreditClass.DataSource = new BindingList<MONHOC>(mONHOCs);
-                    gvCreditClass.FocusedRowHandle = int.Parse(action.obj.ToString());
+                    gcSubject.DataSource = new BindingList<MONHOC>(mONHOCs);
+                    gvSubject.FocusedRowHandle = int.Parse(action.obj.ToString());
                     break;
             }
             stateUndo = false;
@@ -326,7 +364,7 @@ namespace StudentManagement
             else
             {
                 string mamh = gridView.GetRowCellValue(e.RowHandle, idSubject).ToString();
-                var binding = (BindingList<MONHOC>)gvCreditClass.DataSource;
+                var binding = (BindingList<MONHOC>)gvSubject.DataSource;
                 var listUpdate = binding.Where(x => x.MAMH.Trim() == mamh).Count();
                 if(listUpdate >= 2)
                 {
@@ -369,6 +407,62 @@ namespace StudentManagement
                 }
 
             }
+        }
+
+        private void gvCreditClass_RowClick(object sender, RowClickEventArgs e)
+        {
+        
+        }
+
+        private void gvGiangVien_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (initHoTen == null || maMhIsChanged == null) return;
+            view.SetRowCellValue(e.RowHandle, view.Columns["HOTEN"],initHoTen);
+            view.SetRowCellValue(e.RowHandle, view.Columns["MAMH"], maMhIsChanged);
+        }
+
+        private void gvGiangVien_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            var binding = (BindingList<GIANGVIEN>)gvGiangVien.DataSource;
+            if(view.GetRowCellValue(e.RowHandle, "MAGV") != null){
+                var listUpdate = binding.ToList();
+                if (listUpdate.Where(x => x.MAGV == view.GetRowCellValue(e.RowHandle, "MAGV").ToString()).Count() >= 2)
+                {
+                    e.ErrorText = "Giảng viên đã được đăng kí";
+                    e.Valid = false;
+                }
+                else
+                {
+                    GIANGVIEN gv = (GIANGVIEN)view.GetRow(e.RowHandle);
+                    if (gv != null)
+                    {
+                        lstGiangVien.RemoveAll(x=> x.MAMH.Trim() == maMhIsChanged.Trim());
+                        foreach (var item in binding.ToList())
+                        {
+                            lstGiangVien.Add(item);
+                        }
+                    }
+
+                }
+            }
+        }
+
+        private void grkGiangVien_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            if (e.NewValue == null)
+                return;
+            GIANGVIEN gIANGVIEN = ((List<GIANGVIEN>)grkGiangVien.DataSource).FirstOrDefault(x => x.MAGV == e.NewValue.ToString());
+            if (gIANGVIEN == null)
+                return;
+            gvGiangVien.SetRowCellValue(gvGiangVien.FocusedRowHandle, "HOTEN", gIANGVIEN.HOTEN);
+            initHoTen = gIANGVIEN.HOTEN;
+        }
+
+        private void gcGiangVien_Click(object sender, EventArgs e)
+        {
+            selectGvDelete = true;
         }
     }
 }

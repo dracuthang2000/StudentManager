@@ -58,7 +58,6 @@ namespace StudentManagement
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SQLFactory.setUser(tbLogin.Text.Trim(), tbPassword.Text.Trim());
             switch (cbxRole.EditValue)
             {
                 case Role.SV: LoginStudent(); break;
@@ -70,6 +69,7 @@ namespace StudentManagement
         {
             Program.login = Program.loginStudent;
             Program.password = Program.passwordStudent;
+            SQLFactory.setUser(Program.loginStudent, Program.passwordStudent);
             var res = userDAL.LoginStudent(tbLogin.Text.Trim(), tbPassword.Text.Trim());
             if (res.Response.State == ResponseState.Fail)
             {
@@ -92,7 +92,7 @@ namespace StudentManagement
 
             Program.login = login;
             Program.password = password;
-
+            SQLFactory.setUser(login, password);
             var res = userDAL.Login(login);
             if (res.Response.State == ResponseState.Fail)
             {

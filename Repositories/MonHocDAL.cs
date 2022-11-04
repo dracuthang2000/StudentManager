@@ -11,13 +11,14 @@ namespace StudentManagement.Repositories
 {
     class MonHocDAL: AbsRepository
     {
-        public DataResponse<bool> UpdateMonHoc(List<UPDATEMONHOC> list)
+        public DataResponse<bool> UpdateMonHoc(List<UPDATEMONHOC> list, List<KHANANGGIANG> listKNG)
         {
             try
             {
-                string command = "exec [dbo].[SP_UPDATE_MONHOC] @MONHOC";
+                string command = "exec [dbo].[SP_UPDATE_MONHOC] @MONHOC, @KNG";
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.AddTable("@MONHOC", "TYPE_NEWUPDATE_MONHOC", list);
+                parameters.AddTable("@KNG", "TYPE_NEWUPDATE_KHANANGGIANG", listKNG);
                 conn.Execute(command, parameters);
                 return new DataResponeSuccess<bool>(true);
             }
