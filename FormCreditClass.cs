@@ -94,7 +94,7 @@ namespace StudentManagement
                     }
                     if (res.Data[j].MALTC == res.Data[i].MALTC)
                     {
-                        res.Data[i].TENGV = res.Data[i].TENGV + "," + res.Data[j].TENGV;
+                        res.Data[i].TENGV = res.Data[i].TENGV + ", " + res.Data[j].TENGV;
                         res.Data[j] = new LOPTINCHI();
                     }
                 }

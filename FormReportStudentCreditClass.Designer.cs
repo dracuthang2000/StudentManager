@@ -79,6 +79,8 @@ namespace StudentManagement
             this.miPageLayoutContinuous = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.miToolbars = new DevExpress.XtraBars.BarToolbarsListItem();
             this.miBackground = new DevExpress.XtraPrinting.Preview.PrintPreviewSubItem();
+            this.beKhoa = new DevExpress.XtraBars.BarEditItem();
+            this.rilkKhoa1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.beNienKhoa = new DevExpress.XtraBars.BarEditItem();
             this.ricbxNienKhoa = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.beHocKy = new DevExpress.XtraBars.BarEditItem();
@@ -113,34 +115,33 @@ namespace StudentManagement
             this.printPreviewBarCheckItem19 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.rilkKhoa = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.beKhoa = new DevExpress.XtraBars.BarEditItem();
-            this.rilkKhoa1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.documentViewerBarManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ricbxNienKhoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rilkMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa1)).BeginInit();
             this.SuspendLayout();
             // 
             // docView
             // 
             this.docView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.docView.IsMetric = false;
-            this.docView.Location = new System.Drawing.Point(0, 104);
+            this.docView.Location = new System.Drawing.Point(0, 92);
+            this.docView.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.docView.Name = "docView";
-            this.docView.Size = new System.Drawing.Size(1505, 357);
+            this.docView.Size = new System.Drawing.Size(1171, 294);
             this.docView.TabIndex = 0;
             // 
             // documentViewerBarManager1
@@ -651,7 +652,7 @@ namespace StudentManagement
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.beNienKhoa, "", false, true, true, 93),
             new DevExpress.XtraBars.LinkPersistInfo(this.beHocKy),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.beMonHoc, "", false, true, true, 149),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.beNhom, "", false, true, true, 44),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.beNhom, "", false, true, true, 20),
             new DevExpress.XtraBars.LinkPersistInfo(this.beLoad, true)});
             this.previewBar3.OptionsBar.MultiLine = true;
             this.previewBar3.OptionsBar.UseWholeRow = true;
@@ -726,6 +727,26 @@ namespace StudentManagement
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiFillBackground),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiWatermark)});
             this.miBackground.Name = "miBackground";
+            // 
+            // beKhoa
+            // 
+            this.beKhoa.Edit = this.rilkKhoa1;
+            this.beKhoa.Id = 68;
+            this.beKhoa.Name = "beKhoa";
+            this.beKhoa.EditValueChanged += new System.EventHandler(this.barEditItem3_EditValueChanged);
+            // 
+            // rilkKhoa1
+            // 
+            this.rilkKhoa1.AutoHeight = false;
+            this.rilkKhoa1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rilkKhoa1.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENCN", "Khoa"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENSERVER", "KHOA", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.rilkKhoa1.DisplayMember = "TENCN";
+            this.rilkKhoa1.Name = "rilkKhoa1";
+            this.rilkKhoa1.NullText = "";
+            this.rilkKhoa1.ValueMember = "TENSERVER";
             // 
             // beNienKhoa
             // 
@@ -836,31 +857,35 @@ namespace StudentManagement
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.documentViewerBarManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1505, 104);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.barDockControlTop.Size = new System.Drawing.Size(1171, 92);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 461);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 386);
             this.barDockControlBottom.Manager = this.documentViewerBarManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1505, 30);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1171, 27);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 104);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 92);
             this.barDockControlLeft.Manager = this.documentViewerBarManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 357);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 294);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1505, 104);
+            this.barDockControlRight.Location = new System.Drawing.Point(1171, 92);
             this.barDockControlRight.Manager = this.documentViewerBarManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 357);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 294);
             // 
             // printPreviewBarCheckItem1
             // 
@@ -1072,16 +1097,6 @@ namespace StudentManagement
             this.rilkKhoa.NullText = "";
             this.rilkKhoa.ValueMember = "SERVERNAME";
             // 
-            // repositoryItemTextEdit1
-            // 
-            this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            // 
-            // repositoryItemTextEdit2
-            // 
-            this.repositoryItemTextEdit2.AutoHeight = false;
-            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
-            // 
             // barEditItem2
             // 
             this.barEditItem2.Caption = "barEditItem2";
@@ -1096,36 +1111,27 @@ namespace StudentManagement
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
             // 
-            // beKhoa
+            // repositoryItemTextEdit1
             // 
-            this.beKhoa.Edit = this.rilkKhoa1;
-            this.beKhoa.Id = 68;
-            this.beKhoa.Name = "beKhoa";
-            this.beKhoa.EditValueChanged += new System.EventHandler(this.barEditItem3_EditValueChanged);
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
-            // rilkKhoa1
+            // repositoryItemTextEdit2
             // 
-            this.rilkKhoa1.AutoHeight = false;
-            this.rilkKhoa1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.rilkKhoa1.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENCN", "Khoa"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TENSERVER", "KHOA", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.rilkKhoa1.DisplayMember = "TENCN";
-            this.rilkKhoa1.Name = "rilkKhoa1";
-            this.rilkKhoa1.NullText = "";
-            this.rilkKhoa1.ValueMember = "TENSERVER";
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
             // 
             // FormReportStudentCreditClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1505, 491);
+            this.ClientSize = new System.Drawing.Size(1171, 413);
             this.Controls.Add(this.docView);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FormReportStudentCreditClass";
             this.Text = "Lớp tín chỉ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1133,15 +1139,15 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ricbxNienKhoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rilkMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rilkKhoa1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

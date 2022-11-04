@@ -69,11 +69,15 @@ namespace StudentManagement
             // 
             // label1
             // 
-            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(231.7778F, 0F);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F);
+            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.label1.Name = "label1";
-            this.label1.SizeF = new System.Drawing.SizeF(215.2426F, 30.01302F);
+            this.label1.SizeF = new System.Drawing.SizeF(650F, 30.01302F);
             this.label1.StyleName = "TitleStyle";
+            this.label1.StylePriority.UseFont = false;
+            this.label1.StylePriority.UseTextAlignment = false;
             this.label1.Text = "Tổng kết cuối khóa";
+            this.label1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // Detail
             // 
@@ -97,7 +101,7 @@ namespace StudentManagement
             this.crossTabTotalCell3});
             crossTabColumnDefinition1.Visible = false;
             this.xrCrossTab1.ColumnDefinitions.AddRange(new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition[] {
-            new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(251.9444F),
+            new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(251.9445F),
             new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(100F),
             crossTabColumnDefinition1});
             crossTabColumnField1.FieldName = "TENMH";
@@ -128,31 +132,39 @@ namespace StudentManagement
             // crossTabHeaderCell1
             // 
             this.crossTabHeaderCell1.ColumnIndex = 0;
+            this.crossTabHeaderCell1.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.crossTabHeaderCell1.Name = "crossTabHeaderCell1";
             this.crossTabHeaderCell1.RowIndex = 0;
             this.crossTabHeaderCell1.Text = "Mã SV - Họ và tên";
+            this.crossTabHeaderCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // crossTabDataCell1
             // 
             this.crossTabDataCell1.ColumnIndex = 1;
+            this.crossTabDataCell1.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.crossTabDataCell1.Name = "crossTabDataCell1";
             this.crossTabDataCell1.RowIndex = 1;
             // 
             // crossTabHeaderCell2
             // 
             this.crossTabHeaderCell2.ColumnIndex = 1;
+            this.crossTabHeaderCell2.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.crossTabHeaderCell2.Name = "crossTabHeaderCell2";
             this.crossTabHeaderCell2.RowIndex = 0;
+            this.crossTabHeaderCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // crossTabHeaderCell3
             // 
             this.crossTabHeaderCell3.ColumnIndex = 0;
+            this.crossTabHeaderCell3.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.crossTabHeaderCell3.Name = "crossTabHeaderCell3";
             this.crossTabHeaderCell3.RowIndex = 1;
+            this.crossTabHeaderCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // crossTabHeaderCell4
             // 
             this.crossTabHeaderCell4.ColumnIndex = 0;
+            this.crossTabHeaderCell4.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.crossTabHeaderCell4.Name = "crossTabHeaderCell4";
             this.crossTabHeaderCell4.RowIndex = 2;
             this.crossTabHeaderCell4.Text = "Grand Total";
@@ -160,25 +172,30 @@ namespace StudentManagement
             // crossTabTotalCell1
             // 
             this.crossTabTotalCell1.ColumnIndex = 1;
+            this.crossTabTotalCell1.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.crossTabTotalCell1.Name = "crossTabTotalCell1";
             this.crossTabTotalCell1.RowIndex = 2;
             // 
             // crossTabHeaderCell5
             // 
             this.crossTabHeaderCell5.ColumnIndex = 2;
+            this.crossTabHeaderCell5.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.crossTabHeaderCell5.Name = "crossTabHeaderCell5";
             this.crossTabHeaderCell5.RowIndex = 0;
             this.crossTabHeaderCell5.Text = "Grand Total";
+            this.crossTabHeaderCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // crossTabTotalCell2
             // 
             this.crossTabTotalCell2.ColumnIndex = 2;
+            this.crossTabTotalCell2.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.crossTabTotalCell2.Name = "crossTabTotalCell2";
             this.crossTabTotalCell2.RowIndex = 1;
             // 
             // crossTabTotalCell3
             // 
             this.crossTabTotalCell3.ColumnIndex = 2;
+            this.crossTabTotalCell3.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.crossTabTotalCell3.Name = "crossTabTotalCell3";
             this.crossTabTotalCell3.RowIndex = 2;
             // 
