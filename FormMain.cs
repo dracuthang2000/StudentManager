@@ -312,5 +312,17 @@ namespace StudentManagement
             pnContent.Controls.Clear();
             pnContent.Controls.Add(ucCreateLecturers);
         }
+
+        private void barButtonItem3_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            FormPrintDiemSV form = new FormPrintDiemSV();
+            form.ShowDialog();
+        }
+
+        private void barButtonItem7_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            FormReportListStudentByLop form = new FormReportListStudentByLop();
+            form.ShowDialog();
+        }
     }
 }

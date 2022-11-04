@@ -129,21 +129,22 @@ namespace StudentManagement.Repositories
             }
         }
 
-        public DataResponse<List<DIEMSINHVIEN>> inDiemSV(string masv)
+        public DataResponse<List<INDIEMSINHVIEN>> inDiemSV(string masv)
         {
             try
             {
                 string command = "exec dbo.SP_DS_DIEM_SINHVIEN_BY_MASV @masv";
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@masv", masv);
-                var data = conn.Query<DIEMSINHVIEN>(command,parameters).ToList();
-                return new DataResponeSuccess<List<DIEMSINHVIEN>>(data);
+                var data = conn.Query<INDIEMSINHVIEN>(command,parameters).ToList();
+                return new DataResponeSuccess<List<INDIEMSINHVIEN>>(data);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return new DataResponeFail<List<DIEMSINHVIEN>>("Lỗi hệ thống");
+                return new DataResponeFail<List<INDIEMSINHVIEN>>("Lỗi hệ thống");
             }
         }
+
     }
 }

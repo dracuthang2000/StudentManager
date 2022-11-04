@@ -64,6 +64,7 @@ namespace StudentManagement
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonAddCenlenda = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.rbgKhoa = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -79,6 +80,7 @@ namespace StudentManagement
             this.rbGTongKet = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbgSinhVien = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbgTaiKhoan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbgAddLogin = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbgLogout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -94,6 +96,8 @@ namespace StudentManagement
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).BeginInit();
@@ -138,10 +142,12 @@ namespace StudentManagement
             this.barButtonItem23,
             this.btnLogout,
             this.barButtonAddCenlenda,
-            this.barButtonItem1});
+            this.barButtonItem1,
+            this.barButtonItem3,
+            this.barButtonItem7});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.ribbon.MaxItemId = 43;
+            this.ribbon.MaxItemId = 45;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbgKhoa,
@@ -411,6 +417,16 @@ namespace StudentManagement
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick_1);
             // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Xem điểm";
+            this.barButtonItem3.Id = 43;
+            this.barButtonItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
+            this.barButtonItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.barButtonItem3.LargeWidth = 80;
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick_1);
+            // 
             // rbgKhoa
             // 
             this.rbgKhoa.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -462,7 +478,8 @@ namespace StudentManagement
             this.rgBBangDiem,
             this.rgBSVDangKi,
             this.rbGPhieuDiem,
-            this.rbGTongKet});
+            this.rbGTongKet,
+            this.ribbonPageGroup9});
             this.rbgBaoCao.Name = "rbgBaoCao";
             this.rbgBaoCao.Text = "Báo cáo & In ấn";
             // 
@@ -499,7 +516,8 @@ namespace StudentManagement
             // rbgSinhVien
             // 
             this.rbgSinhVien.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup13});
+            this.ribbonPageGroup13,
+            this.ribbonPageGroup8});
             this.rbgSinhVien.Name = "rbgSinhVien";
             this.rbgSinhVien.Text = "Sinh viên";
             // 
@@ -508,6 +526,12 @@ namespace StudentManagement
             this.ribbonPageGroup13.ImageOptions.SvgImage = global::StudentManagement.Properties.Resources.editquery;
             this.ribbonPageGroup13.ItemLinks.Add(this.barButtonItem20);
             this.ribbonPageGroup13.Name = "ribbonPageGroup13";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "ribbonPageGroup8";
             // 
             // rbgTaiKhoan
             // 
@@ -604,6 +628,21 @@ namespace StudentManagement
             this.barButtonItem4.Name = "barButtonItem4";
             this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.barButtonItem7);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "Danh sách sinh viên";
+            this.barButtonItem7.Id = 44;
+            this.barButtonItem7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.ImageOptions.Image")));
+            this.barButtonItem7.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.ImageOptions.LargeImage")));
+            this.barButtonItem7.LargeWidth = 80;
+            this.barButtonItem7.Name = "barButtonItem7";
+            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick_1);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -695,5 +734,9 @@ namespace StudentManagement
         private DevExpress.XtraBars.BarButtonItem barButtonAddCenlenda;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
     }
 }

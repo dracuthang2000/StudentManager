@@ -14,9 +14,10 @@ namespace StudentManagement
         {
             InitializeComponent();
         }
-        public void InitData(List<DIEMSINHVIEN> data)
+        public void InitData(List<INDIEMSINHVIEN> data,string masv)
         {
-            objectDataSource1.DataSource = data;
+            this.pMASV.Value = masv;
+            bindingSource1.DataSource = data;
         }
     }
 }
