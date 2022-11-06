@@ -23,7 +23,6 @@ namespace StudentManagement.Factories
         static string loginStudent = "SV";
         static string passwordStudent = "123456";
         static string currentServer { get; set; }
-        static List<AbsRepository> _listSub = new List<AbsRepository>();
         public static SqlConnection GetConnection() {
             string conmStr;
             if (currentServer == thisServerName)
@@ -51,24 +50,12 @@ namespace StudentManagement.Factories
         public static void SetServer(string serverName, bool notifyChange = true)
         {
             thisServerName = serverName;
-            if(notifyChange)
-            foreach (var repository in _listSub)
-            {
-                repository.OnDbChange();
-            }
         }
 
         public static void SetCurrentServer(string serverName, bool notifyChange = true)
         {
             currentServer = serverName;
-            if (notifyChange)
-                foreach (var repository in _listSub)
-                {
-                    repository.OnDbChange();
-                }
         }
-        public static void RegisterSub(AbsRepository r) => _listSub.Add(r);
-        public static void UnRegisterSub(AbsRepository r) => _listSub.Remove(r);
 
         public static void setUser(string alogin, string apassword)
         {

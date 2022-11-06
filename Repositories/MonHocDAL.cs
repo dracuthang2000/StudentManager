@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DapperParameters;
+using StudentManagement.Factories;
 using StudentManagement.Model;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Repositories
 {
-    class MonHocDAL: AbsRepository
+    class MonHocDAL
     {
         public DataResponse<bool> UpdateMonHoc(List<UPDATEMONHOC> list, List<KHANANGGIANG> listKNG)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec [dbo].[SP_UPDATE_MONHOC] @MONHOC, @KNG";
@@ -27,9 +29,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
         public DataResponse<List<MONHOC>> GetListMonHoc()
         {
+            var conn = SQLFactory.GetConnection();
+
             try
             {
                 string command = "exec dbo.SP_DS_MonHoc";
@@ -41,10 +49,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<MONHOC>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<List<MONHOC>> GetListMonHocKeHoach(string nienKhoa,int hocky)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec [dbo].[SP_DS_MONHOC_KEHOACH] @nienKhoa, @hocky";
@@ -59,10 +72,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<MONHOC>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
  
         }
         public DataResponse<bool> CheckMonHoc(string mamh)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "select [dbo].[func_KT_MONHOC] (@MAMH)";
@@ -76,10 +94,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<bool> CheckMaMonHoc(string mamh)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "select [dbo].[FUNC_KT_MAMONHOC] (@MAMH)";
@@ -92,6 +115,10 @@ namespace StudentManagement.Repositories
             {
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
+            }
+            finally
+            {
+                conn.Close();
             }
 
         }

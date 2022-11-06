@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 using Dapper;
 using StudentManagement.Model;
 using DapperParameters;
+using StudentManagement.Factories;
 
 namespace StudentManagement.Repositories
 {
-    public class ChuyenNganhDAL: AbsRepository
+    public class ChuyenNganhDAL
     {
         public DataResponse<List<CHUYENNGANH>> getChuyenNganh()
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec dbo.SP_GET_CHUYENNGANH";
@@ -24,6 +26,10 @@ namespace StudentManagement.Repositories
             {
                 Console.WriteLine(e);
                 return new DataResponeFail<List<CHUYENNGANH>>("Lỗi hệ thống");
+            }
+            finally
+            {
+                conn.Close();
             }
         }
        

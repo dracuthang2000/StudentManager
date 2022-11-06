@@ -229,7 +229,7 @@ namespace StudentManagement
             this.xrLabel8.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?pMASV")});
             this.xrLabel8.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(239.1667F, 59.33329F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(285.8332F, 59.33329F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -239,11 +239,11 @@ namespace StudentManagement
             // xrLabel7
             // 
             this.xrLabel7.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold);
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(157.5F, 59.33329F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(181.6665F, 59.33329F);
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(81.66675F, 22.99998F);
+            this.xrLabel7.SizeF = new System.Drawing.SizeF(104.1667F, 22.99997F);
             this.xrLabel7.StylePriority.UseFont = false;
             this.xrLabel7.Text = "Mã SV:";
             // 
@@ -252,7 +252,7 @@ namespace StudentManagement
             this.xrLabel6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TENLOP]")});
             this.xrLabel6.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(240.0002F, 105.3333F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(286.6667F, 105.3333F);
             this.xrLabel6.Multiline = true;
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -262,11 +262,11 @@ namespace StudentManagement
             // xrLabel5
             // 
             this.xrLabel5.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold);
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(157.5F, 105.3333F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(181.6665F, 105.3333F);
             this.xrLabel5.Multiline = true;
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(81.66672F, 22.99998F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(104.1667F, 22.99998F);
             this.xrLabel5.StylePriority.UseFont = false;
             this.xrLabel5.Text = "Tên lớp:";
             // 
@@ -275,7 +275,7 @@ namespace StudentManagement
             this.xrLabel4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[MALOP]")});
             this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(240.0001F, 82.3333F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(286.6666F, 82.3333F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -285,11 +285,11 @@ namespace StudentManagement
             // xrLabel3
             // 
             this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(157.5F, 82.33327F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(181.6665F, 82.33324F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(81.66675F, 22.99998F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(104.1667F, 22.99999F);
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.Text = "Mã lớp:";
             // 
@@ -298,7 +298,7 @@ namespace StudentManagement
             this.xrLabel2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[HOTEN]")});
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(240.0001F, 36.33331F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(286.6666F, 36.33331F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -308,11 +308,11 @@ namespace StudentManagement
             // xrLabel1
             // 
             this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(157.5F, 36.33331F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(181.6665F, 36.33331F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(81.66675F, 22.99999F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(104.1667F, 22.99999F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.Text = "Họ và tên:";
             // 
@@ -424,11 +424,11 @@ namespace StudentManagement
             this.xrLabel12.AnchorVertical = ((DevExpress.XtraReports.UI.VerticalAnchorStyles)((DevExpress.XtraReports.UI.VerticalAnchorStyles.Top | DevExpress.XtraReports.UI.VerticalAnchorStyles.Bottom)));
             this.xrLabel12.CanGrow = false;
             this.xrLabel12.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold);
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(158.3335F, 5.833308F);
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(0F, 5.833282F);
             this.xrLabel12.Multiline = true;
             this.xrLabel12.Name = "xrLabel12";
             this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(350.8333F, 30.50001F);
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(650F, 30.50001F);
             this.xrLabel12.StylePriority.UseFont = false;
             this.xrLabel12.StylePriority.UseTextAlignment = false;
             this.xrLabel12.Text = "BẢNG ĐIỂM CÁC MÔN HỌC";

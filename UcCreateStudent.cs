@@ -368,6 +368,15 @@ namespace StudentManagement
                     e.Valid = false;
                     e.ErrorText = "Không để rỗng!";
                 }
+
+                if (gridView.GetFocusedRowCellValue("MASV") != null)
+                {
+                    if (sinhVienDAL.CheckSinhvienThi(gridView.GetFocusedRowCellValue("MASV").ToString()).Data)
+                    {
+                        e.Valid = false;
+                        e.ErrorText = "Sinh viên đã đăng ký thi nên không được đổi lớp!";
+                    }
+                }
             }
         }
 

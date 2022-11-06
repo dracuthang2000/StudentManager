@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DapperParameters;
+using StudentManagement.Factories;
 using StudentManagement.Model;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Repositories
 {
-    class GiangVienDAL : AbsRepository
+    class GiangVienDAL 
     {
         public DataResponse<List<GIANGVIEN>> GetListGiangVien()
         {
+            var conn = SQLFactory.GetConnection();
 
             try
             {
@@ -25,10 +27,15 @@ namespace StudentManagement.Repositories
             {
                 return new DataResponeFail<List<GIANGVIEN>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<List<GIANGVIEN>> GetListGiangVienKhaNangGiangMonHoc(string mamh)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec [dbo].[SP_GIANGVIEN_KHANANGGIANG] @mamh";
@@ -42,10 +49,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<GIANGVIEN>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<List<GIANGVIEN>> GetListGiangVienKhaNangGiangMonHoc()
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec [dbo].[SP_DS_GIANGVIEN_KHANANGGIANG]";
@@ -58,10 +70,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<GIANGVIEN>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<List<GIANGVIEN>> GetListGiangVienLopTC()
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec [dbo].[SP_DS_GIANGVIEN_LOPTINCHI]";
@@ -74,9 +91,14 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<GIANGVIEN>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
         public DataResponse<List<GIANGVIEN>> GetListCurrentGiangVien()
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec dbo.SP_DS_GiangVien_CURRENT";
@@ -88,11 +110,16 @@ namespace StudentManagement.Repositories
             {
                 return new DataResponeFail<List<GIANGVIEN>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
 
         }
 
         public DataResponse<List<GIANGVIEN>> GetListAllGiangVien()
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec dbo.SP_DS_All_GiangVien";
@@ -104,9 +131,14 @@ namespace StudentManagement.Repositories
             {
                 return new DataResponeFail<List<GIANGVIEN>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
         public DataResponse<List<GIANGVIEN>> GetListGiangVienByKhoa(string maKhoa)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec dbo.SP_GET_DS_GIANGVIEN_BY_KHOA @MAKHOA";
@@ -119,10 +151,15 @@ namespace StudentManagement.Repositories
             {
                 return new DataResponeFail<List<GIANGVIEN>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<bool> UpdateGiangVien(List<UPDATEGIANGVIEN> list,string maKhoa)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec [dbo].[SP_UPDATE_GIANGVIEN] @GIANGVIEN, @MAKHOA";
@@ -138,10 +175,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<bool> CheckGiangVien(string magv)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "select [dbo].[FUNC_KT_MAGV_KHOANGOAI] (@MAGV)";
@@ -155,10 +197,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<bool> CheckGiangVienDayLTC(string magv,string mamh)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "select [dbo].[FUNC_KT_MAGV_EXIST_DAY_LTC] (@MAGV,@mamh)";
@@ -173,10 +220,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<List<KHOA>> GetListKhoa()
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec dbo.SP_GET_DS_KHOA";
@@ -187,6 +239,10 @@ namespace StudentManagement.Repositories
             catch (Exception)
             {
                 return new DataResponeFail<List<KHOA>>("Lỗi hệ thống");
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

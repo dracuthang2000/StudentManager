@@ -30,6 +30,7 @@ namespace StudentManagement
         private KYNIENKHOA kyNienKhoa;
         private GIANGVIEN gvInitnew = new GIANGVIEN();
         private bool selectGvDelete = false;
+        private string initNewGUID;
         public UcCreateLecturersCreditClass()
         {
             InitializeComponent();
@@ -270,50 +271,37 @@ namespace StudentManagement
             gvCreditClass.SetRowCellValue(GetSelelectRow(), "TENMH", mONHOC.TENMH);
             //gvCreditClass.SetRowCellValue(GetSelelectRow(), "MANV", Program.login);
             gvCreditClass.SetRowCellValue(GetSelelectRow(), "MANV", "PGV01");
-            if (gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC") != null && gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC").ToString().Equals("0"))
+
+            if(gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC") != null 
+                && !gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC").ToString().Equals("0"))
             {
-                lstGiangVien.RemoveAll(x => x.MALTC.ToString() == gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC").ToString()
-                && x.MAMH == mONHOC.MAMH && x.NHOM == Int32.Parse(gvCreditClass.GetRowCellValue(GetSelelectRow(), "NHOM").ToString())
-                && x.MANK == gvCreditClass.GetRowCellValue(GetSelelectRow(), "MANK").ToString());
                 var gvTemp = new GiangVienDAL().GetListGiangVienKhaNangGiangMonHoc(mONHOC.MAMH).Data;
                 grkGiangVien.DataSource = gvTemp;
+                gvTemp[0].MALTC = (int)gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC");
+                gvTemp[0].MAMH = mONHOC.MAMH;
+                gvTemp[0].MANK = kyNienKhoa.MANK;
+                gvTemp[0].GUID = null;
+                gvTemp[0].NHOM = gvInitnew.NHOM;
+                initNewGUID = null;
                 List<GIANGVIEN> gvs = new List<GIANGVIEN>();
+                gvs.Add(gvTemp[0]);
+                gvGiangVien.DataSource = new BindingList<GIANGVIEN>(gvs);
+            }
+            else if(gvCreditClass.GetRowCellValue(GetSelelectRow(), "GUID") != null)
+            {
+                var gvTemp = new GiangVienDAL().GetListGiangVienKhaNangGiangMonHoc(mONHOC.MAMH).Data;
+                grkGiangVien.DataSource = gvTemp;
                 gvTemp[0].MALTC = 0;
                 gvTemp[0].MAMH = mONHOC.MAMH;
                 gvTemp[0].MANK = kyNienKhoa.MANK;
-                gvs.Add(gvTemp[0]);
-                lstGiangVien.Add(gvTemp[0]);
-                gvInitnew.MAMH = mONHOC.MAMH;
-                gvTemp[0].NHOM = Int32.Parse(gvCreditClass.GetRowCellValue(GetSelelectRow(), "NHOM").ToString());
-                gvInitnew.NHOM = Int32.Parse(gvCreditClass.GetRowCellValue(GetSelelectRow(), "NHOM").ToString());
-                gvGiangVien.DataSource = new BindingList<GIANGVIEN>(gvs);
-            }
-            else
-            {
-                var gvTemp = new GiangVienDAL().GetListGiangVienKhaNangGiangMonHoc(mONHOC.MAMH).Data;
-                grkGiangVien.DataSource = gvTemp;
-                if (gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC") != null)
-                {
-                    gvTemp[0].MALTC = Int32.Parse(gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC").ToString());
-                    lstGiangVien.RemoveAll(x => x.MALTC.ToString() == gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC").ToString() 
-                    && x.MAMH == mONHOC.MAMH);
-                }
-                else if (gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC") == null)
-                {
-                    gvTemp[0].MALTC = 0;
-                    gvTemp[0].MAMH = mONHOC.MAMH;
-                    gvTemp[0].NHOM = Int32.Parse(gvCreditClass.GetRowCellValue(GetSelelectRow(), "NHOM").ToString());
-                    lstGiangVien.RemoveAll(x => x.MALTC.ToString() == gvTemp[0].MALTC.ToString() && x.MAMH == mONHOC.MAMH 
-                    && x.NHOM == Int32.Parse(gvCreditClass.GetRowCellValue(GetSelelectRow(), "NHOM").ToString())
-                    && x.MANK == gvCreditClass.GetRowCellValue(GetSelelectRow(), "MANK").ToString());
-                }
-                gvTemp[0].MANK = kyNienKhoa.MANK;
-                lstGiangVien.Add(gvTemp[0]);
+                gvTemp[0].NHOM = gvInitnew.NHOM;
+                gvTemp[0].GUID = gvCreditClass.GetRowCellValue(GetSelelectRow(), "GUID").ToString();
+                initNewGUID = gvTemp[0].GUID;
                 List<GIANGVIEN> gvs = new List<GIANGVIEN>();
                 gvs.Add(gvTemp[0]);
-                gvInitnew.MAMH = mONHOC.MAMH;
-                gvInitnew.NHOM = Int32.Parse(gvCreditClass.GetRowCellValue(GetSelelectRow(), "NHOM").ToString());
                 gvGiangVien.DataSource = new BindingList<GIANGVIEN>(gvs);
+                lstGiangVien.RemoveAll(x => x.MALTC.ToString() == gvCreditClass.GetRowCellValue(GetSelelectRow(), "GUID").ToString());
+                lstGiangVien.Add(gvTemp[0]);
             }
         }
 
@@ -329,9 +317,9 @@ namespace StudentManagement
                 {
                     gvGiangVien.DataSource = new BindingList<GIANGVIEN>(lstGiangVien.Where(x => x.MALTC == ltc.MALTC && x.MAMH == ltc.MAMH).ToList());
                 }
-                else
+                else if(ltc.GUID != null)
                 {
-                    gvGiangVien.DataSource = new BindingList<GIANGVIEN>(lstGiangVien.Where(x => x.MALTC == ltc.MALTC && x.MAMH == ltc.MAMH && ltc.NHOM == x.NHOM).ToList());
+                    gvGiangVien.DataSource = new BindingList<GIANGVIEN>(lstGiangVien.Where(x => x.GUID == ltc.GUID).ToList());
                 }
                 gvInitnew.MAMH = ltc.MAMH;
                 gvInitnew.MALTC = ltc.MALTC;
@@ -357,7 +345,7 @@ namespace StudentManagement
                         binding.ToList()[i].NHOM = Int32.Parse(view.GetRowCellValue(e.RowHandle, "NHOM").ToString());
                     }
                 }
-         
+                gvInitnew.NHOM = Int32.Parse(view.GetRowCellValue(e.RowHandle, "NHOM").ToString());
             }
         }
 
@@ -373,9 +361,13 @@ namespace StudentManagement
 
         private void gvCreditClass_InitNewRow(object sender, InitNewRowEventArgs e)
         {
+            GridView view = sender as GridView;
             if (stateUndo)
                 return;
             undo.Push(new ActionUndo(2, gvCreditClass.RowCount, null), new ActionUndo(3, GetSelelectRow(), new LOPTINCHI()));
+            Guid guid = Guid.NewGuid();
+            initNewGUID = guid.ToString();
+            view.SetRowCellValue(e.RowHandle, view.Columns["GUID"], initNewGUID);
         }
 
         private void bEUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -444,11 +436,78 @@ namespace StudentManagement
                 e.ErrorText = "Số sinh viên tối thiểu không được để trống hoặc bằng 0";
                 e.Valid = false;
             }
+            if (gridView.GetRowCellValue(e.RowHandle, "SOSVTOIDA") == null || (int)gridView.GetRowCellValue(e.RowHandle, "SOSVTOIDA") == 0)
+            {
+                e.ErrorText = "Số sinh viên tối đa không được để trống hoặc bằng 0";
+                e.Valid = false;
+            }
+            if(gridView.GetRowCellValue(e.RowHandle, "SOSVTOIDA") != null && (int)gridView.GetRowCellValue(e.RowHandle, "SOSVTOIDA") != 0)
+            {
+                if(gridView.GetRowCellValue(e.RowHandle, "SOSVTOITHIEU") != null)
+                {
+                    if((int)gridView.GetRowCellValue(e.RowHandle, "SOSVTOITHIEU")> (int)gridView.GetRowCellValue(e.RowHandle, "SOSVTOIDA"))
+                    {
+                        e.ErrorText = "Số sinh viên tối đa phải lớn hơn số sinh viên tối thiểu";
+                        e.Valid = false;
+                    }
+                }
+                else if((gridView.GetRowCellValue(e.RowHandle, "SOSVTOITHIEU") == null || (int)gridView.GetRowCellValue(e.RowHandle, "SOSVTOITHIEU") == 0))
+                {
+                    e.ErrorText = "Số sinh viên tối thiểu không được để trống hoặc bằng 0";
+                    e.Valid = false;
+                }
+                if((int)gridView.GetRowCellValue(e.RowHandle, "SOSVTOIDA") > 200)
+                {
+                    e.ErrorText = "Số sinh viên tối đa nhỏ hơn hoặc bằng 200";
+                    e.Valid = false;
+                }
+            }
             if (gridView.GetRowCellValue(e.RowHandle, "MAMH") == null )
             {
                 e.ErrorText = "Mã môn học không được để trống";
                 e.Valid = false;
             }
+            else
+            {
+                var temps = (List<MONHOC>)rilkMAMH.DataSource;
+                if (temps.Where(x => x.MAMH.Trim() == gridView.GetRowCellValue(e.RowHandle, "MAMH").ToString().Trim()).Count() == 0)
+                {
+                   return;
+                }
+                else
+                {
+                    if (gridView.GetRowCellValue(e.RowHandle, "NHOM") != null
+                        && gridView.GetRowCellValue(e.RowHandle, "MAMH") != null)
+                    {
+                        var binding = (BindingList<LOPTINCHI>)gvCreditClass.DataSource;
+                        var listUpdate = binding.ToList().Select(x => new UpdateLopTinChi(x)).ToList();
+                        if (listUpdate.Where(x => x.NHOM == (int)(gridView.GetRowCellValue(e.RowHandle, "NHOM")) &&
+                          x.MAMH == gridView.GetRowCellValue(e.RowHandle, "MAMH").ToString()).Count() >= 2)
+                        {
+                            e.ErrorText = "Môn học và nhóm đã được đăng kí";
+
+                            e.Valid = false;
+                        }
+                        else
+                        {
+                            var bindingGV = (BindingList<GIANGVIEN>)gvGiangVien.DataSource;
+                            if (gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC") != null
+                                    && !gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC").ToString().Equals("0"))
+                            {
+                                lstGiangVien.RemoveAll(x => x.MALTC.ToString() == gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC").ToString());
+                                bindingGV.ToList().ForEach(gv => lstGiangVien.Add(gv));
+                            }
+                            else if (gvCreditClass.GetRowCellValue(GetSelelectRow(), "GUID") != null)
+                            {
+                                lstGiangVien.RemoveAll(x => x.GUID == gvCreditClass.GetRowCellValue(GetSelelectRow(), "GUID").ToString());
+                                bindingGV.ToList().ForEach(gv => lstGiangVien.Add(gv));
+                            }
+                        }
+                    }
+                   
+                }
+            }
+
             /*if (gridView.GetRowCellValue(e.RowHandle, "MAGV") == null)
             {
                 e.ErrorText = "Max giảng viên không được để trống";
@@ -457,19 +516,7 @@ namespace StudentManagement
             }*/
 
 
-            if(gridView.GetRowCellValue(e.RowHandle, "NHOM") != null
-                && gridView.GetRowCellValue(e.RowHandle, "MAMH") != null)
-            {
-                var binding = (BindingList<LOPTINCHI>)gvCreditClass.DataSource;
-                var listUpdate = binding.ToList().Select(x => new UpdateLopTinChi(x)).ToList();
-                if(listUpdate.Where(x => x.NHOM == (int)(gridView.GetRowCellValue(e.RowHandle, "NHOM") ) &&
-                 x.MAMH == gridView.GetRowCellValue(e.RowHandle, "MAMH").ToString()).Count() >=2)
-                    {
-                    e.ErrorText = "Môn học và nhóm đã được đăng kí";
 
-                    e.Valid = false;
-                }
-            }    
         }
         private void gridGV_CellValueChanging(object sender, CellValueChangedEventArgs e)
         {
@@ -497,6 +544,7 @@ namespace StudentManagement
             view.SetRowCellValue(e.RowHandle, view.Columns["MAMH"], gvInitnew.MAMH);
             view.SetRowCellValue(e.RowHandle, view.Columns["NHOM"], gvInitnew.NHOM);
             view.SetRowCellValue(e.RowHandle, view.Columns["MANK"], kyNienKhoa.MANK);
+            view.SetRowCellValue(e.RowHandle, view.Columns["GUID"], initNewGUID);
         }
 
         private void gvGiangVien1_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -508,8 +556,8 @@ namespace StudentManagement
                 var listUpdate = binding.ToList();
                 if (listUpdate.Where(x =>x.MAGV == view.GetRowCellValue(e.RowHandle, "MAGV").ToString()).Count() >= 2)
                 {
-                    e.ErrorText = "Giảng viên đã được đăng kí";
-                    e.Valid = false;
+                    //e.ErrorText = "Giảng viên đã được đăng kí";
+                   // e.Valid = false;
                 }
                 else
                 {
@@ -530,6 +578,31 @@ namespace StudentManagement
         private void gvGiangVien_Click(object sender, EventArgs e)
         {
             selectGvDelete = true;
+        }
+
+        private void gvCreditClass_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view.FocusedColumn.FieldName == "MAMH")
+            {
+                var temps = (List<MONHOC>)rilkMAMH.DataSource;
+                if (temps.Where(x => x.MAMH.Trim() == e.Value.ToString().Trim()).Count() == 0)
+                {
+                    e.ErrorText = "Mã môn học không tồn tại";
+                    e.Valid = false;
+                }
+                else
+                {
+                    var bindind = (BindingList<GIANGVIEN>)gvGiangVien.DataSource;
+                    if (gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC")!=null && (int)gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC")!=0)
+                    {
+                        lstGiangVien.RemoveAll(x => x.MALTC.ToString() == gvCreditClass.GetRowCellValue(GetSelelectRow(), "MALTC").ToString());
+                    }else if(gvCreditClass.GetRowCellValue(GetSelelectRow(), "GUID")!=null){
+                        lstGiangVien.RemoveAll(x => x.GUID == gvCreditClass.GetRowCellValue(GetSelelectRow(), "GUID").ToString());
+                    }
+                    bindind.ToList().ForEach(x => lstGiangVien.Add(x));
+                }
+            }
         }
     }
 }

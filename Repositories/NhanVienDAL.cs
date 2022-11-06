@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DapperParameters;
+using StudentManagement.Factories;
 using StudentManagement.Model;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Repositories
 {
-    class NhanVienDAL: AbsRepository
+    class NhanVienDAL
     {
         public DataResponse<List<NHANVIEN>> getListNhanVien()
         {
+            var conn = SQLFactory.GetConnection();
 
             try
             {
@@ -24,6 +26,10 @@ namespace StudentManagement.Repositories
             catch (Exception)
             {
                 return new DataResponeFail<List<NHANVIEN>>("Lỗi hệ thống");
+            }
+            finally
+            {
+                conn.Close();
             }
         }       
     }

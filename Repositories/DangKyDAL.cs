@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DapperParameters;
+using StudentManagement.Factories;
 using StudentManagement.Model;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Repositories
 {
-    public class DangKyDAL: AbsRepository
+    public class DangKyDAL
     {
         public DataResponse<bool> UpdateDangKy(List<UpdateDangKy> list, string masv)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec [dbo].[SP_UPDATE_DangKy] @DK, @masv";
@@ -27,9 +29,14 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
         public DataResponse<List<LOPTINCHI>> GetListDangKyBySinhVien(string nienKhoa, int hocKy, string maSinhVien)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec [dbo].[SP_DS_DANGKY_SINHVIEN] @nienKhoa , @hocKy , @maSV";
@@ -45,9 +52,14 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<LOPTINCHI>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
         public DataResponse<List<DANGKY>> GetListDKByMALTC(int maltc)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec [dbo].[SP_DS_DANGKY_BY_MALTC] @maltc";
@@ -61,9 +73,14 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<DANGKY>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
         public DataResponse<bool> UpdateDiem(List<UpdateGrade> list)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 
@@ -77,6 +94,10 @@ namespace StudentManagement.Repositories
             {
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

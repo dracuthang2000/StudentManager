@@ -47,6 +47,7 @@ namespace StudentManagement
             this.colHUYLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMANK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGUIDLTC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -76,6 +77,7 @@ namespace StudentManagement
             this.colMAMHGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNHOMGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMANKGV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGUIDGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bSTeacher = new System.Windows.Forms.BindingSource(this.components);
             this.bSSubject = new System.Windows.Forms.BindingSource(this.components);
             this.bSRegister = new System.Windows.Forms.BindingSource(this.components);
@@ -190,7 +192,8 @@ namespace StudentManagement
             this.colTENKHOA,
             this.colHUYLOP,
             this.colMANV,
-            this.colMANK});
+            this.colMANK,
+            this.colGUIDLTC});
             this.gvCreditClass.DetailHeight = 294;
             this.gvCreditClass.FixedLineWidth = 1;
             this.gvCreditClass.GridControl = this.gcCreditClass;
@@ -202,6 +205,7 @@ namespace StudentManagement
             this.gvCreditClass.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanged);
             this.gvCreditClass.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanging);
             this.gvCreditClass.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvCreditClass_ValidateRow);
+            this.gvCreditClass.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gvCreditClass_ValidatingEditor);
             // 
             // colMALTC
             // 
@@ -322,6 +326,15 @@ namespace StudentManagement
             this.colMANK.MinWidth = 25;
             this.colMANK.Name = "colMANK";
             this.colMANK.Width = 94;
+            // 
+            // colGUIDLTC
+            // 
+            this.colGUIDLTC.Caption = "GUID";
+            this.colGUIDLTC.FieldName = "GUID";
+            this.colGUIDLTC.MinWidth = 25;
+            this.colGUIDLTC.Name = "colGUIDLTC";
+            this.colGUIDLTC.OptionsColumn.AllowEdit = false;
+            this.colGUIDLTC.Width = 94;
             // 
             // barManager
             // 
@@ -527,7 +540,8 @@ namespace StudentManagement
             this.colMALTCGV,
             this.colMAMHGV,
             this.colNHOMGV,
-            this.colMANKGV});
+            this.colMANKGV,
+            this.colGUIDGV});
             this.gvGiangVien1.GridControl = this.gvGiangVien;
             this.gvGiangVien1.Name = "gvGiangVien1";
             this.gvGiangVien1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
@@ -603,6 +617,15 @@ namespace StudentManagement
             this.colMANKGV.MinWidth = 25;
             this.colMANKGV.Name = "colMANKGV";
             this.colMANKGV.Width = 94;
+            // 
+            // colGUIDGV
+            // 
+            this.colGUIDGV.Caption = "GUID";
+            this.colGUIDGV.FieldName = "GUID";
+            this.colGUIDGV.MinWidth = 25;
+            this.colGUIDGV.Name = "colGUIDGV";
+            this.colGUIDGV.OptionsColumn.AllowEdit = false;
+            this.colGUIDGV.Width = 94;
             // 
             // bSSubject
             // 
@@ -1088,5 +1111,7 @@ namespace StudentManagement
         private DevExpress.XtraGrid.Columns.GridColumn colMANK;
         private DevExpress.XtraGrid.Columns.GridColumn colNHOMGV;
         private DevExpress.XtraGrid.Columns.GridColumn colMANKGV;
+        private DevExpress.XtraGrid.Columns.GridColumn colGUIDLTC;
+        private DevExpress.XtraGrid.Columns.GridColumn colGUIDGV;
     }
 }

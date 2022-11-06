@@ -27,21 +27,23 @@ namespace StudentManagement
         public FormMain()
         {
             InitializeComponent();
-            ShowFormLogin();
-                    
+            //ShowFormLogin();
+            Initial();
+
         }
-        
-        
+
+
         void ShowFormLogin()
         {
-            this.Visible = false;
+            //this.Visible = false;
+            this.Close();
             if (fromLogin == null)
                 fromLogin = new FormLogin();
 
             var dr = fromLogin.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                this.Visible = true;
+                //this.Visible = true;
                 Initial();
             }else
             {
@@ -64,6 +66,7 @@ namespace StudentManagement
         }
         private void MyForm_CloseOnStart(object sender, EventArgs e)
         {
+            Program.formlogin.Visible = true;
             this.Close();
         }
 
@@ -122,20 +125,14 @@ namespace StudentManagement
             rbgDSHocPhi.Visible = false;
         }
         
-        private void pktPermission()
-        {
-            rbgSinhVien.Visible = false;
-            rbgKhoa.Visible = false;
-            rbGLopTinChi.Visible = false;
-            rgBBangDiem.Visible = false;
-            rgBSVDangKi.Visible = false;
-            rbGPhieuDiem.Visible = false;
-            rbGTongKet.Visible = false;
-        }
         private void khoaPermission()
         {
             rbgSinhVien.Visible = false;
             rbgDSHocPhi.Visible = false;
+            ribbonPageGroup5.Visible = false;
+            ribbonPageGroup16.Visible = false;
+            bbMonHoc.Visible = false;
+            ribbonPageGroup7.Visible = false;
         }
 
         private void decentralization()
@@ -144,7 +141,6 @@ namespace StudentManagement
             {
                 case Role.SV : svPermission(); break;
                 case Role.PGV: pgvPermission(); break;
-                case Role.PKT: pktPermission(); break;
                 case Role.KHOA: khoaPermission(); break;
                 default: return;
             }
@@ -289,8 +285,10 @@ namespace StudentManagement
 
         private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
         {
-            reset();
-            ShowFormLogin();
+            //reset();
+            //ShowFormLogin();
+            Program.formlogin.Visible = true;
+            this.Close();
         }
 
         private void barButtonAddCenlenda_ItemClick(object sender, ItemClickEventArgs e)
@@ -323,6 +321,11 @@ namespace StudentManagement
         {
             FormReportListStudentByLop form = new FormReportListStudentByLop();
             form.ShowDialog();
+        }
+
+        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.formlogin.Visible = true;
         }
     }
 }

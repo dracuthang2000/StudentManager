@@ -35,14 +35,14 @@ namespace StudentManagement
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string malop =beLop.EditValue as string ;
-            var lstLop = (List<LOP>)rilkLop.DataSource;
-            string tenlop = lstLop.Single(l => l.MALOP.Trim() == malop.Trim()).TENLOP;
-            string tenKhoa = Program.servers.FirstOrDefault(x => x.TENSERVER == Program.currentServer).TENCN;
             if (String.IsNullOrWhiteSpace(malop))
             {
                 MessageBox.Show("Mã lớp không được để trống");
-                return ;
-            }    
+                return;
+            }
+            var lstLop = (List<LOP>)rilkLop.DataSource;
+            string tenlop = lstLop.Single(l => l.MALOP.Trim() == malop.Trim()).TENLOP;
+            string tenKhoa = Program.servers.FirstOrDefault(x => x.TENSERVER == Program.currentServer).TENCN;  
             foreach (DevExpress.XtraReports.Parameters.Parameter p in report.Parameters)
                 p.Visible = false;
 

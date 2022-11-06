@@ -25,6 +25,8 @@
         public string MANK { get; set; }
         public bool CHON { get; set; }
         public string TRANGTHAI { get; set; }
+
+        public string GUID { get; set; }
         public LOPTINCHI()
         {
             this.TRANGTHAI = "Đã lưu";

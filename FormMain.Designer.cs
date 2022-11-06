@@ -31,6 +31,7 @@ namespace StudentManagement
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbtnCode = new DevExpress.XtraBars.BarButtonItem();
             this.bbtnFullName = new DevExpress.XtraBars.BarButtonItem();
@@ -49,10 +50,8 @@ namespace StudentManagement
             this.btnNotify = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnNotice = new DevExpress.XtraBars.BarButtonItem();
             this.bbReportLopTinChi = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiDSDongHocPhi = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDSBangDiem = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSVDangKy = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPhieuDiem = new DevExpress.XtraBars.BarButtonItem();
@@ -60,11 +59,12 @@ namespace StudentManagement
             this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemMH = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonAddCenlenda = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonGV = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.rbgKhoa = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -73,19 +73,17 @@ namespace StudentManagement
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbgBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbGLopTinChi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbgDSHocPhi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rgBBangDiem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rgBSVDangKi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbGPhieuDiem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbGTongKet = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbgSinhVien = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbgTaiKhoan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbgAddLogin = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbgLogout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
-            this.repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.pnContent = new DevExpress.XtraEditors.PanelControl();
@@ -96,12 +94,10 @@ namespace StudentManagement
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.rbgDSHocPhi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiDSDongHocPhi = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(repositoryItemButtonEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnContent)).BeginInit();
             this.SuspendLayout();
@@ -131,7 +127,6 @@ namespace StudentManagement
             this.barEditItem1,
             this.btnNotice,
             this.bbReportLopTinChi,
-            this.bbiDSDongHocPhi,
             this.bbiDSBangDiem,
             this.bbiSVDangKy,
             this.bbiPhieuDiem,
@@ -139,10 +134,10 @@ namespace StudentManagement
             this.barButtonItem20,
             this.barButtonItem21,
             this.barButtonItem22,
-            this.barButtonItem23,
+            this.barButtonItemMH,
             this.btnLogout,
             this.barButtonAddCenlenda,
-            this.barButtonItem1,
+            this.barButtonGV,
             this.barButtonItem3,
             this.barButtonItem7});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
@@ -154,10 +149,6 @@ namespace StudentManagement
             this.rbgBaoCao,
             this.rbgSinhVien,
             this.rbgTaiKhoan});
-            this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemCalcEdit1,
-            this.repositoryItemButtonEdit1,
-            this.repositoryItemHypertextLabel1});
             this.ribbon.Size = new System.Drawing.Size(1244, 193);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
@@ -288,16 +279,13 @@ namespace StudentManagement
             // barEditItem1
             // 
             this.barEditItem1.Caption = "barEditItem1";
-            this.barEditItem1.Edit = this.repositoryItemButtonEdit1;
+            repositoryItemButtonEdit2.AutoHeight = false;
+            repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit1";
+            this.barEditItem1.Edit = repositoryItemButtonEdit2;
             this.barEditItem1.Id = 25;
             this.barEditItem1.Name = "barEditItem1";
-            // 
-            // repositoryItemButtonEdit1
-            // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             // 
             // btnNotice
             // 
@@ -312,14 +300,6 @@ namespace StudentManagement
             this.bbReportLopTinChi.LargeWidth = 80;
             this.bbReportLopTinChi.Name = "bbReportLopTinChi";
             this.bbReportLopTinChi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem14_ItemClick);
-            // 
-            // bbiDSDongHocPhi
-            // 
-            this.bbiDSDongHocPhi.Caption = "Danh sách\r\nđóng học phí\r\n";
-            this.bbiDSDongHocPhi.Id = 29;
-            this.bbiDSDongHocPhi.ImageOptions.SvgImage = global::StudentManagement.Properties.Resources.business_money;
-            this.bbiDSDongHocPhi.LargeWidth = 80;
-            this.bbiDSDongHocPhi.Name = "bbiDSDongHocPhi";
             // 
             // bbiDSBangDiem
             // 
@@ -380,14 +360,14 @@ namespace StudentManagement
             this.barButtonItem22.Id = 37;
             this.barButtonItem22.Name = "barButtonItem22";
             // 
-            // barButtonItem23
+            // barButtonItemMH
             // 
-            this.barButtonItem23.Caption = "Môn học";
-            this.barButtonItem23.Id = 38;
-            this.barButtonItem23.ImageOptions.SvgImage = global::StudentManagement.Properties.Resources.subtotalspivottable;
-            this.barButtonItem23.LargeWidth = 80;
-            this.barButtonItem23.Name = "barButtonItem23";
-            this.barButtonItem23.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem23_ItemClick);
+            this.barButtonItemMH.Caption = "Môn học";
+            this.barButtonItemMH.Id = 38;
+            this.barButtonItemMH.ImageOptions.SvgImage = global::StudentManagement.Properties.Resources.subtotalspivottable;
+            this.barButtonItemMH.LargeWidth = 80;
+            this.barButtonItemMH.Name = "barButtonItemMH";
+            this.barButtonItemMH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem23_ItemClick);
             // 
             // btnLogout
             // 
@@ -407,15 +387,15 @@ namespace StudentManagement
             this.barButtonAddCenlenda.Name = "barButtonAddCenlenda";
             this.barButtonAddCenlenda.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonAddCenlenda_ItemClick);
             // 
-            // barButtonItem1
+            // barButtonGV
             // 
-            this.barButtonItem1.Caption = "Giảng viên";
-            this.barButtonItem1.Id = 42;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.LargeWidth = 80;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick_1);
+            this.barButtonGV.Caption = "Giảng viên";
+            this.barButtonGV.Id = 42;
+            this.barButtonGV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonGV.ImageOptions.Image")));
+            this.barButtonGV.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonGV.ImageOptions.LargeImage")));
+            this.barButtonGV.LargeWidth = 80;
+            this.barButtonGV.Name = "barButtonGV";
+            this.barButtonGV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick_1);
             // 
             // barButtonItem3
             // 
@@ -426,6 +406,16 @@ namespace StudentManagement
             this.barButtonItem3.LargeWidth = 80;
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick_1);
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "Danh sách sinh viên";
+            this.barButtonItem7.Id = 44;
+            this.barButtonItem7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.ImageOptions.Image")));
+            this.barButtonItem7.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.ImageOptions.LargeImage")));
+            this.barButtonItem7.LargeWidth = 80;
+            this.barButtonItem7.Name = "barButtonItem7";
+            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick_1);
             // 
             // rbgKhoa
             // 
@@ -460,13 +450,13 @@ namespace StudentManagement
             // 
             // bbMonHoc
             // 
-            this.bbMonHoc.ItemLinks.Add(this.barButtonItem23);
+            this.bbMonHoc.ItemLinks.Add(this.barButtonItemMH);
             this.bbMonHoc.Name = "bbMonHoc";
             this.bbMonHoc.Text = "Môn học";
             // 
             // ribbonPageGroup7
             // 
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonGV);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.Text = "Giảng viên";
             // 
@@ -474,7 +464,6 @@ namespace StudentManagement
             // 
             this.rbgBaoCao.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbGLopTinChi,
-            this.rbgDSHocPhi,
             this.rgBBangDiem,
             this.rgBSVDangKi,
             this.rbGPhieuDiem,
@@ -487,11 +476,6 @@ namespace StudentManagement
             // 
             this.rbGLopTinChi.ItemLinks.Add(this.bbReportLopTinChi);
             this.rbGLopTinChi.Name = "rbGLopTinChi";
-            // 
-            // rbgDSHocPhi
-            // 
-            this.rbgDSHocPhi.ItemLinks.Add(this.bbiDSDongHocPhi);
-            this.rbgDSHocPhi.Name = "rbgDSHocPhi";
             // 
             // rgBBangDiem
             // 
@@ -512,6 +496,11 @@ namespace StudentManagement
             // 
             this.rbGTongKet.ItemLinks.Add(this.bbiTKCuoiKhoa);
             this.rbGTongKet.Name = "rbGTongKet";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.barButtonItem7);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
             // 
             // rbgSinhVien
             // 
@@ -551,17 +540,6 @@ namespace StudentManagement
             this.rbgLogout.Alignment = DevExpress.XtraBars.Ribbon.RibbonPageGroupAlignment.Far;
             this.rbgLogout.ItemLinks.Add(this.btnLogout);
             this.rbgLogout.Name = "rbgLogout";
-            // 
-            // repositoryItemCalcEdit1
-            // 
-            this.repositoryItemCalcEdit1.AutoHeight = false;
-            this.repositoryItemCalcEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemCalcEdit1.Name = "repositoryItemCalcEdit1";
-            // 
-            // repositoryItemHypertextLabel1
-            // 
-            this.repositoryItemHypertextLabel1.Name = "repositoryItemHypertextLabel1";
             // 
             // ribbonStatusBar
             // 
@@ -628,20 +606,17 @@ namespace StudentManagement
             this.barButtonItem4.Name = "barButtonItem4";
             this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
-            // ribbonPageGroup9
+            // rbgDSHocPhi
             // 
-            this.ribbonPageGroup9.ItemLinks.Add(this.barButtonItem7);
-            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.rbgDSHocPhi.Name = "rbgDSHocPhi";
             // 
-            // barButtonItem7
+            // bbiDSDongHocPhi
             // 
-            this.barButtonItem7.Caption = "Danh sách sinh viên";
-            this.barButtonItem7.Id = 44;
-            this.barButtonItem7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.ImageOptions.Image")));
-            this.barButtonItem7.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.ImageOptions.LargeImage")));
-            this.barButtonItem7.LargeWidth = 80;
-            this.barButtonItem7.Name = "barButtonItem7";
-            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick_1);
+            this.bbiDSDongHocPhi.Caption = "Danh sách\r\nđóng học phí\r\n";
+            this.bbiDSDongHocPhi.Id = 29;
+            this.bbiDSDongHocPhi.ImageOptions.SvgImage = global::StudentManagement.Properties.Resources.business_money;
+            this.bbiDSDongHocPhi.LargeWidth = 80;
+            this.bbiDSDongHocPhi.Name = "bbiDSDongHocPhi";
             // 
             // FormMain
             // 
@@ -657,11 +632,10 @@ namespace StudentManagement
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "MainForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(repositoryItemButtonEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnContent)).EndInit();
             this.ResumeLayout(false);
@@ -696,15 +670,10 @@ namespace StudentManagement
         private DevExpress.XtraBars.BarButtonItem btnNotify;
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel repositoryItemHypertextLabel1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit1;
         private DevExpress.XtraBars.BarButtonItem btnNotice;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbgBaoCao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbGLopTinChi;
         private DevExpress.XtraBars.BarButtonItem bbReportLopTinChi;
-        private DevExpress.XtraBars.BarButtonItem bbiDSDongHocPhi;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbgDSHocPhi;
         private DevExpress.XtraBars.BarButtonItem bbiDSBangDiem;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rgBBangDiem;
         private DevExpress.XtraBars.BarButtonItem bbiSVDangKy;
@@ -726,17 +695,19 @@ namespace StudentManagement
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem22;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem23;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemMH;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup bbMonHoc;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbgLogout;
         private DevExpress.XtraBars.BarButtonItem barButtonAddCenlenda;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonGV;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbgDSHocPhi;
+        private DevExpress.XtraBars.BarButtonItem bbiDSDongHocPhi;
     }
 }

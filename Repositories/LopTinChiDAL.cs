@@ -11,29 +11,11 @@ using System.Data.SqlClient;
 
 namespace StudentManagement.Repositories
 {
-    public class LopTinChiDAL: AbsRepository
+    public class LopTinChiDAL
     {
         public DataResponse<List<LOPTINCHI>> GetListLopTinChi(string nienKhoa, int hocKy)
         {
-            //if (!BaseDAl.Connect())
-            //    return new DataResponeFail<List<LOPTINCHI>>("Lỗi kết nối");
-            //try
-            //{
-            //    string command = "exec dbo.SP_DS_LopTinChi @nienKhoa , @hocKy";
-            //    DynamicParameters parameters = new DynamicParameters();
-            //    parameters.Add("@nienKhoa", nienKhoa);
-            //    parameters.Add("@hocKy", hocKy);
-            //    var data = conn.Query<LOPTINCHI>(command, parameters).ToList();
-            //    return new DataResponeSuccess<List<LOPTINCHI>>(data);
-            //}
-            //catch(Exception e)
-            //{
-            //    Console.WriteLine(e);
-            //    return new DataResponeFail<List<LOPTINCHI>>("Lỗi hệ thống");
-            //}finally
-            //{
-            //    BaseDAl.DisConnect();
-            //}
+            var conn = SQLFactory.GetConnection();
             try
             {
                 
@@ -49,10 +31,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<LOPTINCHI>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<List<LOPTINCHI>> GetListLopTinChiKhongGV(string nienKhoa, int hocKy)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec dbo.SP_DS_LopTinChi_Khong_GiangVien @nienKhoa , @hocKy";
@@ -67,10 +54,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<LOPTINCHI>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<List<INBANGDIEM>> InBangDiemSV(string maSV, string role)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec dbo.SP_InBangDiemSV @maSV, @role";
@@ -84,9 +76,14 @@ namespace StudentManagement.Repositories
             {
                 return new DataResponeFail<List<INBANGDIEM>>(e.ToString().Substring(0, 128));
             }
+            finally
+            {
+                conn.Close();
+            }
         }
         public DataResponse<List<LOPTINCHI>> GetListLopTinChiActive(string nienKhoa, int hocKy)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec dbo.SP_DS_LopTinChi_Active @nienKhoa , @hocKy";
@@ -101,10 +98,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<LOPTINCHI>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<bool> UpdateLopTinChi(List<UpdateLopTinChi> list,List<GIANGVIENLTC> lstGvLTC, string nienKhoa, int hocKy)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec [dbo].[SP_UPDATE_LopTinChi] @LTC ,@DAYTEMP, @nienkhoa , @hocky";
@@ -121,9 +123,14 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
         public DataResponse<bool> CheckLopTinChi(int maltc)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "select [dbo].[FUNC_KT_DK_LopTinChi] (@MALTC)";
@@ -137,10 +144,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<List<REPORTDIEMLTC>> ReportDiemLTC(string nienKhoa, int hocKy,string mamh,int nhom)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec dbo.SP_REPORT_LOPTINHCHI @nienKhoa,@hocKy,@mamh,@nhom";
@@ -156,6 +168,10 @@ namespace StudentManagement.Repositories
             {
                 Console.WriteLine(e);
                 return new DataResponeFail<List<REPORTDIEMLTC>>("Lỗi hệ thống");
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

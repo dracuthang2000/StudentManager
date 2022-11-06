@@ -27,8 +27,9 @@ namespace StudentManagement
         public static SqlConnection conn { get; set; } 
         public static List<ServerInfo> servers { get; set; }
         public static string conmStr { get; set; }
+        public static FormLogin formlogin;
         public static FormMain formMain;
-       
+
 
         [STAThread]
         static void Main()
@@ -37,8 +38,9 @@ namespace StudentManagement
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            formMain = new FormMain();
-            Application.Run(formMain);
+            //formMain = new FormMain();
+            formlogin = new FormLogin();
+            Application.Run(formlogin);
         }
     }
 }

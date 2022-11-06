@@ -82,8 +82,8 @@ namespace StudentManagement
             Program.username = res.Data.USERNAME;
             Program.fullName = res.Data.HOTEN;
             Program.group = res.Data.TENNHOM;
-
             this.DialogResult = DialogResult.OK;
+            showFormMain();
         }
         void LoginStaff()
         {
@@ -103,8 +103,16 @@ namespace StudentManagement
             Program.username = res.Data.USERNAME;
             Program.fullName = res.Data.HOTEN;
             Program.group = res.Data.TENNHOM;
-
             this.DialogResult = DialogResult.OK;
+            showFormMain();
+        }
+
+        void showFormMain()
+        {
+            Program.formlogin.Visible = false;
+            FormMain main = new FormMain();
+            Program.formMain = main;
+            main.ShowDialog();
         }
 
     }

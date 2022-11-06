@@ -15,12 +15,12 @@ namespace StudentManagement.Repositories
         {
             if(!lazy)
                 conn = SQLFactory.GetConnection();
-            SQLFactory.RegisterSub(this);
+           // SQLFactory.RegisterSub(this);
         }
         public void Dispose()
         {
             if (conn.State == System.Data.ConnectionState.Open) conn.Close();
-            SQLFactory.UnRegisterSub(this);
+           // SQLFactory.UnRegisterSub(this);
         }
 
         public virtual void OnDbChange() {

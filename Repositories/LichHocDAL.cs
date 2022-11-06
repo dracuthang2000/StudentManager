@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 using Dapper;
 using StudentManagement.Model;
 using DapperParameters;
+using StudentManagement.Factories;
 
 namespace StudentManagement.Repositories
 {
-    public class LichHocDAL: AbsRepository
+    public class LichHocDAL
     {
         public DataResponse<List<LICHHOC>> GetLichHoc()
         {
-
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec dbo.SP_GET_LICHHOC";
@@ -26,10 +27,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<LICHHOC>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<List<LICHHOC>> GetChiTietLichHocByNienKhoa(string nienKhoa, int hocKy)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec dbo.[SP_GET_CT_LICHHOC_BY_NK] @nienKhoa, @hocky";
@@ -44,10 +50,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<LICHHOC>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<List<LICHHOC>> GetChiTietLichHoc()
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec dbo.[SP_GET_CHI_TIET_LICHHOC]";
@@ -60,10 +71,15 @@ namespace StudentManagement.Repositories
                 Console.WriteLine(e);
                 return new DataResponeFail<List<LICHHOC>>("Lỗi hệ thống");
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public DataResponse<bool> UpdateCTLichHoc(List<UPDATE_CHITIET_LH> list)
         {
+            var conn = SQLFactory.GetConnection();
             try
             {
                 string command = "exec [dbo].[SP_UPDATE_CT_LICHHOC] @CTLH";
@@ -76,6 +92,10 @@ namespace StudentManagement.Repositories
             {
                 Console.WriteLine(e);
                 return new DataResponeFail<bool>("Lỗi hệ thống");
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }
