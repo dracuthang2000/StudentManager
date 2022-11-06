@@ -32,6 +32,7 @@ namespace StudentManagement
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcCreateLecturers));
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gcLecturers = new DevExpress.XtraGrid.GridControl();
             this.dSSPCreditClass = new System.Windows.Forms.BindingSource(this.components);
             this.gvLecturers = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -99,9 +100,10 @@ namespace StudentManagement
             this.bESemester = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcLecturers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSSPCreditClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLecturers)).BeginInit();
@@ -124,8 +126,6 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl2
@@ -137,6 +137,16 @@ namespace StudentManagement
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(959, 542);
             this.panelControl2.TabIndex = 6;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.gcLecturers);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(2, 2);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(955, 538);
+            this.groupControl1.TabIndex = 1;
+            this.groupControl1.Text = "Giảng viên";
             // 
             // gcLecturers
             // 
@@ -785,16 +795,6 @@ namespace StudentManagement
             this.repositoryItemCheckEdit1.Caption = "HỦY";
             this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.gcLecturers);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(2, 2);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(955, 538);
-            this.groupControl1.TabIndex = 1;
-            this.groupControl1.Text = "Giảng viên";
-            // 
             // UcCreateLecturers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -817,6 +817,8 @@ namespace StudentManagement
             this.Size = new System.Drawing.Size(959, 643);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcLecturers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSSPCreditClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLecturers)).EndInit();
@@ -839,8 +841,6 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

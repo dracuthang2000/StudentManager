@@ -77,7 +77,10 @@ namespace StudentManagement
                 return;
             }
             if (res.Data == null)
+            {
+                MessageBox.Show("Đăng nhập thất bại! sai tên đăng nhập hoặc mật khẩu","Thất bại",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
+            }
 
             Program.username = res.Data.USERNAME;
             Program.fullName = res.Data.HOTEN;
@@ -96,7 +99,7 @@ namespace StudentManagement
             var res = userDAL.Login(login);
             if (res.Response.State == ResponseState.Fail)
             {
-                MessageBox.Show(res.Response.Message);
+                MessageBox.Show(res.Response.Message, "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
