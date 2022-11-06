@@ -57,19 +57,39 @@ namespace StudentManagement
 
         private void beLoadData_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
-
-
             // change check state in credit class
             IniData();
-
       
         }
         void IniData()
         {
             string nienKhoa = bESchoolYear.EditValue as string;
             int hocKy = Convert.ToInt32(bESemester.EditValue);
-
+            KYNIENKHOA knk = new KyNienKhoaDAL().GetNienKhoaByAny(nienKhoa, hocKy).Data;
+            if (knk.THOIGIAN_BDDK > DateTime.Now || knk.THOIGIAN_KTDK < DateTime.Now)
+            {
+                if(knk.THOIGIAN_BDDK > DateTime.Now)
+                {
+                    labelTb.Text = "CHƯA ĐẾN THỜI GIAN ĐĂNG KÝ, VUI LÒNG QUAY TRỞ LẠI SAU";
+                }
+                if (knk.THOIGIAN_KTDK < DateTime.Now)
+                {
+                    labelTb.Text = "ĐÃ HẾT THỜI GIAN ĐĂNG KÝ, VUI LÒNG CHỜ KỲ KHÁC";
+                }
+                labelNotyficate.Text = "THỜI GIAN ĐĂNG KÝ TỪ " + knk.THOIGIAN_BDDK.ToString() + " ĐẾN " + knk.THOIGIAN_KTDK.ToString();
+                labelNotyficate.Visible = true;
+                labelTb.Visible = true;
+                gcCreditClass.Enabled = false;
+                colXOA.Visible = false;
+            }
+            else
+            {
+                labelTb.Visible = false;
+                labelNotyficate.Visible = false;
+                colXOA.Visible = true;
+                gcCreditClass.Enabled = true;
+                gcRegister.Enabled = true;
+            }
             var res = _lopTinChiDAL.GetListLopTinChiActive(nienKhoa, hocKy);
             if (res.Response.State == ResponseState.Fail)
             {
@@ -240,8 +260,38 @@ namespace StudentManagement
           
         }
 
-      
+        private void gvCreditClass_MasterRowEmpty(object sender, MasterRowEmptyEventArgs e)
+        {
+            GridView view = sender as GridView;
+            LOPTINCHI ltc = view.GetRow(e.RowHandle) as LOPTINCHI;
+            List<LICHHOC> lh = new LichHocDAL().GetChiTietLichHocByMaLTC(ltc.MALTC).Data;
+            if (ltc != null)
+            {
+                e.IsEmpty = !lh.Any(gv => gv.MALTC == ltc.MALTC);
+            }
+        }
 
-       
+        private void gvCreditClass_MasterRowGetChildList(object sender, MasterRowGetChildListEventArgs e)
+        {
+
+            GridView view = sender as GridView;
+            LOPTINCHI ltc = view.GetRow(e.RowHandle) as LOPTINCHI;
+            List<LICHHOC> lh = new LichHocDAL().GetChiTietLichHocByMaLTC(ltc.MALTC).Data;
+            if (ltc != null)
+            {
+                e.ChildList = lh.Where(gv => gv.MALTC == ltc.MALTC).ToList();
+            }
+        }
+
+        private void gvCreditClass_MasterRowGetRelationName(object sender, MasterRowGetRelationNameEventArgs e)
+        {
+            e.RelationName = "Lịch học";
+        }
+
+        private void gvCreditClass_MasterRowGetRelationCount(object sender, MasterRowGetRelationCountEventArgs e)
+        {
+            e.RelationCount = 1;
+
+        }
     }
 }

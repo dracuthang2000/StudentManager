@@ -14,6 +14,7 @@ using System.ComponentModel;
 using StudentManagement.Undo;
 using DevExpress.XtraGrid.Views.Base;
 using StudentManagement.Factories;
+using DevExpress.XtraSplashScreen;
 
 namespace StudentManagement
 {
@@ -121,7 +122,6 @@ namespace StudentManagement
         }
         private void LoadData()
         {
-           
             string nienKhoa = bESchoolYear.EditValue.ToString();
             int hocKy = int.Parse(bESemester.EditValue.ToString());
             gcLichHoc.DataSource = null;

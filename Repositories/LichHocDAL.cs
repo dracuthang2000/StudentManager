@@ -77,6 +77,28 @@ namespace StudentManagement.Repositories
             }
         }
 
+        public DataResponse<List<LICHHOC>> GetChiTietLichHocByMaLTC(int maltc)
+        {
+            var conn = SQLFactory.GetConnection();
+            try
+            {
+                string command = "exec dbo.[SP_GET_CHI_TIET_LICHHOC_LTC] @maltc";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@maltc", maltc);
+                var data = conn.Query<LICHHOC>(command,parameters).ToList();
+                return new DataResponeSuccess<List<LICHHOC>>(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<List<LICHHOC>>("Lỗi hệ thống");
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public DataResponse<bool> UpdateCTLichHoc(List<UPDATE_CHITIET_LH> list)
         {
             var conn = SQLFactory.GetConnection();

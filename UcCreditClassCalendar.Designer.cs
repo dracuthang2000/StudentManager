@@ -70,6 +70,7 @@ namespace StudentManagement
             this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.rilkMAGV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.gcLichHoc = new DevExpress.XtraGrid.GridControl();
             this.gvLichHoc = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -79,6 +80,7 @@ namespace StudentManagement
             this.colTKT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMALTCLH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grkGiangVien = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.bSTeacher = new System.Windows.Forms.BindingSource(this.components);
             this.bSSubject = new System.Windows.Forms.BindingSource(this.components);
             this.bSRegister = new System.Windows.Forms.BindingSource(this.components);
@@ -130,10 +132,14 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.rilkMAGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcLichHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLichHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grkLichHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grkGiangVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bSTeacher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSRegister)).BeginInit();
@@ -156,6 +162,9 @@ namespace StudentManagement
             this.gridGV.Name = "gridGV";
             this.gridGV.OptionsBehavior.Editable = false;
             this.gridGV.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
+            this.gridGV.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvLichHoc_InitNewRow);
+            this.gridGV.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridGV_CellValueChanging);
+            this.gridGV.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvLichHoc_ValidateRow);
             // 
             // colMAGV
             // 
@@ -179,16 +188,14 @@ namespace StudentManagement
             // 
             // gcCreditClass
             // 
-            this.gcCreditClass.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.gcCreditClass.DataSource = this.dSSPCreditClass;
+            this.gcCreditClass.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcCreditClass.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             gridLevelNode1.LevelTemplate = this.gridGV;
             gridLevelNode1.RelationName = "Giảng viên";
             this.gcCreditClass.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.gcCreditClass.Location = new System.Drawing.Point(2, 2);
+            this.gcCreditClass.Location = new System.Drawing.Point(2, 28);
             this.gcCreditClass.MainView = this.gvCreditClass;
             this.gcCreditClass.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gcCreditClass.MenuManager = this.barManager;
@@ -196,8 +203,9 @@ namespace StudentManagement
             this.gcCreditClass.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rilkMAMH,
             this.rilkMAGV});
-            this.gcCreditClass.Size = new System.Drawing.Size(955, 301);
-            this.gcCreditClass.TabIndex = 0;
+            this.gcCreditClass.Size = new System.Drawing.Size(951, 270);
+            this.gcCreditClass.TabIndex = 1;
+            this.gcCreditClass.Tag = "";
             this.gcCreditClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCreditClass,
             this.gridGV});
@@ -232,7 +240,6 @@ namespace StudentManagement
             this.gvCreditClass.MasterRowGetRelationName += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.gvCreditClass_MasterRowGetRelationName);
             this.gvCreditClass.MasterRowGetRelationCount += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventHandler(this.gvCreditClass_MasterRowGetRelationCount);
             this.gvCreditClass.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvCreditClass_InitNewRow);
-            this.gvCreditClass.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCreditClass_FocusedRowChanged);
             this.gvCreditClass.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanged);
             this.gvCreditClass.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanging);
             this.gvCreditClass.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvCreditClass_ValidateRow);
@@ -282,7 +289,6 @@ namespace StudentManagement
             this.rilkMAMH.NullText = "";
             this.rilkMAMH.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.rilkMAMH.ValueMember = "MAMH";
-            this.rilkMAMH.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.rilkMAMH_EditValueChanging);
             // 
             // colTENMH
             // 
@@ -537,8 +543,8 @@ namespace StudentManagement
             // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.gcLichHoc);
-            this.panelControl2.Controls.Add(this.gcCreditClass);
+            this.panelControl2.Controls.Add(this.groupControl2);
+            this.panelControl2.Controls.Add(this.groupControl1);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 61);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -546,18 +552,28 @@ namespace StudentManagement
             this.panelControl2.Size = new System.Drawing.Size(959, 542);
             this.panelControl2.TabIndex = 6;
             // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.gcLichHoc);
+            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl2.Location = new System.Drawing.Point(2, 302);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(955, 238);
+            this.groupControl2.TabIndex = 3;
+            this.groupControl2.Text = "Lịch học";
+            // 
             // gcLichHoc
             // 
-            this.gcLichHoc.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gcLichHoc.Location = new System.Drawing.Point(2, 299);
+            this.gcLichHoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcLichHoc.Location = new System.Drawing.Point(2, 28);
             this.gcLichHoc.MainView = this.gvLichHoc;
             this.gcLichHoc.MenuManager = this.barManager;
             this.gcLichHoc.Name = "gcLichHoc";
             this.gcLichHoc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.grkGiangVien,
             this.grkLichHoc});
-            this.gcLichHoc.Size = new System.Drawing.Size(955, 241);
-            this.gcLichHoc.TabIndex = 1;
+            this.gcLichHoc.Size = new System.Drawing.Size(951, 208);
+            this.gcLichHoc.TabIndex = 2;
             this.gcLichHoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvLichHoc});
             // 
@@ -657,6 +673,16 @@ namespace StudentManagement
             this.grkGiangVien.Name = "grkGiangVien";
             this.grkGiangVien.NullText = "";
             this.grkGiangVien.ValueMember = "MAGV";
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.gcCreditClass);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl1.Location = new System.Drawing.Point(2, 2);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(955, 300);
+            this.groupControl1.TabIndex = 2;
+            this.groupControl1.Text = "Lớp tín chỉ";
             // 
             // bSSubject
             // 
@@ -1038,10 +1064,14 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.rilkMAGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcLichHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLichHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grkLichHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grkGiangVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bSTeacher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSSubject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSRegister)).EndInit();
@@ -1115,35 +1145,36 @@ namespace StudentManagement
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraBars.BarButtonItem bEAdd;
         private System.Windows.Forms.BindingSource bSTeacher;
-        //private DSCreditClassTableAdapters.SP_DS_GiangVienTableAdapter tATeacher;
+        private DevExpress.XtraBars.BarButtonItem bEUndo;
+        private DevExpress.XtraBars.BarButtonItem beRedo;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraGrid.GridControl gcLichHoc;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvLichHoc;
+        private DevExpress.XtraGrid.Columns.GridColumn colMALH;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit grkLichHoc;
+        private DevExpress.XtraGrid.Columns.GridColumn colTHU;
+        private DevExpress.XtraGrid.Columns.GridColumn colTBD;
+        private DevExpress.XtraGrid.Columns.GridColumn colTKT;
+        private DevExpress.XtraGrid.Columns.GridColumn colMALTCLH;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit grkGiangVien;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraGrid.GridControl gcCreditClass;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridGV;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAGV;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENGV;
         private DevExpress.XtraGrid.Views.Grid.GridView gvCreditClass;
         private DevExpress.XtraGrid.Columns.GridColumn colMALTC;
         private DevExpress.XtraGrid.Columns.GridColumn colNIENKHOA;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rilkMAMH;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
         private DevExpress.XtraGrid.Columns.GridColumn colHOCKY;
+        private DevExpress.XtraGrid.Columns.GridColumn SOSVTOIDA;
         private DevExpress.XtraGrid.Columns.GridColumn colNHOM;
         private DevExpress.XtraGrid.Columns.GridColumn colSOSVTOITHIEU;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKHOA;
         private DevExpress.XtraGrid.Columns.GridColumn colTENKHOA;
         private DevExpress.XtraGrid.Columns.GridColumn colHUYLOP;
-        private DevExpress.XtraBars.BarButtonItem bEUndo;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rilkMAMH;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rilkMAGV;
-        private DevExpress.XtraBars.BarButtonItem beRedo;
-        private DevExpress.XtraGrid.Columns.GridColumn SOSVTOIDA;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridGV;
-        private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
-        private DevExpress.XtraGrid.GridControl gcLichHoc;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvLichHoc;
-        private DevExpress.XtraGrid.Columns.GridColumn colMALH;
-        private DevExpress.XtraGrid.Columns.GridColumn colTHU;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit grkGiangVien;
-        private DevExpress.XtraGrid.Columns.GridColumn colTBD;
-        private DevExpress.XtraGrid.Columns.GridColumn colTKT;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit grkLichHoc;
-        private DevExpress.XtraGrid.Columns.GridColumn colMALTCLH;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAGV;
-        private DevExpress.XtraGrid.Columns.GridColumn colTENGV;
     }
 }

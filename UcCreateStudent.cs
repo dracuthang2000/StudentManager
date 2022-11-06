@@ -259,10 +259,6 @@ namespace StudentManagement
             gvCreditClass.SetRowCellValue(gvCreditClass.FocusedRowHandle, "TENLOP", LOPs.TENLOP);
         }
 
-        private void gcCreditClass_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void gvCreditClass_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {

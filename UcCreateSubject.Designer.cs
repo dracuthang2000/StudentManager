@@ -32,12 +32,14 @@ namespace StudentManagement
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcCreateSubject));
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.gcGiangVien = new DevExpress.XtraGrid.GridControl();
-            this.gvGiangVien = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grkGiangVien = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.colTENGV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMAMHGV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.gcSubject = new DevExpress.XtraGrid.GridControl();
+            this.dSSPCreditClass = new System.Windows.Forms.BindingSource(this.components);
+            this.gvSubject = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colLT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.idSubject = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSubjectName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -56,15 +58,15 @@ namespace StudentManagement
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gcSubject = new DevExpress.XtraGrid.GridControl();
-            this.dSSPCreditClass = new System.Windows.Forms.BindingSource(this.components);
-            this.gvSubject = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colLT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.idSubject = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSubjectName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rilkMAMH = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.rilkMAGV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.gcGiangVien = new DevExpress.XtraGrid.GridControl();
+            this.gvGiangVien = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grkGiangVien = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colTENGV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMAMHGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bSTeacher = new System.Windows.Forms.BindingSource(this.components);
             this.bSSubject = new System.Windows.Forms.BindingSource(this.components);
             this.bSRegister = new System.Windows.Forms.BindingSource(this.components);
@@ -104,20 +106,24 @@ namespace StudentManagement
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcGiangVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvGiangVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grkGiangVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSubject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSSPCreditClass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkBranch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcSubject)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSSPCreditClass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rilkMAMH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rilkMAGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcGiangVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvGiangVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grkGiangVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSTeacher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSRegister)).BeginInit();
@@ -133,8 +139,8 @@ namespace StudentManagement
             // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.gcGiangVien);
-            this.panelControl2.Controls.Add(this.gcSubject);
+            this.panelControl2.Controls.Add(this.groupControl2);
+            this.panelControl2.Controls.Add(this.groupControl1);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 61);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -142,79 +148,101 @@ namespace StudentManagement
             this.panelControl2.Size = new System.Drawing.Size(959, 542);
             this.panelControl2.TabIndex = 6;
             // 
-            // gcGiangVien
+            // groupControl2
             // 
-            this.gcGiangVien.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gcGiangVien.Location = new System.Drawing.Point(2, 289);
-            this.gcGiangVien.MainView = this.gvGiangVien;
-            this.gcGiangVien.MenuManager = this.barManager;
-            this.gcGiangVien.Name = "gcGiangVien";
-            this.gcGiangVien.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.grkGiangVien});
-            this.gcGiangVien.Size = new System.Drawing.Size(955, 251);
-            this.gcGiangVien.TabIndex = 1;
-            this.gcGiangVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvGiangVien});
-            this.gcGiangVien.Click += new System.EventHandler(this.gcGiangVien_Click);
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl2.Controls.Add(this.gcSubject);
+            this.groupControl2.Location = new System.Drawing.Point(2, 2);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(955, 286);
+            this.groupControl2.TabIndex = 3;
+            this.groupControl2.Text = "Môn học";
             // 
-            // gvGiangVien
+            // gcSubject
             // 
-            this.gvGiangVien.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAGV,
-            this.colTENGV,
-            this.colMAMHGV});
-            this.gvGiangVien.GridControl = this.gcGiangVien;
-            this.gvGiangVien.Name = "gvGiangVien";
-            this.gvGiangVien.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.gvGiangVien.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvGiangVien_InitNewRow);
-            this.gvGiangVien.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvGiangVien_ValidateRow);
+            this.gcSubject.DataSource = this.dSSPCreditClass;
+            this.gcSubject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcSubject.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gcSubject.Location = new System.Drawing.Point(2, 28);
+            this.gcSubject.MainView = this.gvSubject;
+            this.gcSubject.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gcSubject.MenuManager = this.barManager;
+            this.gcSubject.Name = "gcSubject";
+            this.gcSubject.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rilkMAMH,
+            this.rilkMAGV});
+            this.gcSubject.Size = new System.Drawing.Size(951, 256);
+            this.gcSubject.TabIndex = 0;
+            this.gcSubject.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvSubject});
+            this.gcSubject.Click += new System.EventHandler(this.gcCreditClass_Click);
             // 
-            // colMAGV
+            // dSSPCreditClass
             // 
-            this.colMAGV.Caption = "Mã giảng viên";
-            this.colMAGV.ColumnEdit = this.grkGiangVien;
-            this.colMAGV.FieldName = "MAGV";
-            this.colMAGV.MinWidth = 25;
-            this.colMAGV.Name = "colMAGV";
-            this.colMAGV.Visible = true;
-            this.colMAGV.VisibleIndex = 0;
-            this.colMAGV.Width = 94;
+            this.dSSPCreditClass.DataMember = "SP_DS_LopTinChi";
             // 
-            // grkGiangVien
+            // gvSubject
             // 
-            this.grkGiangVien.AutoHeight = false;
-            this.grkGiangVien.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.grkGiangVien.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAGV", "Mã giảng viên"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HOTEN", "Họ và tên")});
-            this.grkGiangVien.DisplayMember = "MAGV";
-            this.grkGiangVien.Name = "grkGiangVien";
-            this.grkGiangVien.NullText = "";
-            this.grkGiangVien.ValueMember = "MAGV";
-            this.grkGiangVien.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.grkGiangVien_EditValueChanging);
+            this.gvSubject.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colLT,
+            this.idSubject,
+            this.colTH,
+            this.colSubjectName});
+            this.gvSubject.DetailHeight = 294;
+            this.gvSubject.FixedLineWidth = 1;
+            this.gvSubject.GridControl = this.gcSubject;
+            this.gvSubject.Name = "gvSubject";
+            this.gvSubject.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
+            this.gvSubject.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gvSubject.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvCreditClass_RowClick);
+            this.gvSubject.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvCreditClass_InitNewRow);
+            this.gvSubject.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCreditClass_FocusedRowChanged);
+            this.gvSubject.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanged);
+            this.gvSubject.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanging);
+            this.gvSubject.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvCreditClass_ValidateRow);
+            this.gvSubject.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gvCreditClass_ValidatingEditor);
             // 
-            // colTENGV
+            // colLT
             // 
-            this.colTENGV.Caption = "Họ và tên";
-            this.colTENGV.FieldName = "HOTEN";
-            this.colTENGV.MinWidth = 25;
-            this.colTENGV.Name = "colTENGV";
-            this.colTENGV.OptionsColumn.AllowEdit = false;
-            this.colTENGV.Visible = true;
-            this.colTENGV.VisibleIndex = 1;
-            this.colTENGV.Width = 94;
+            this.colLT.Caption = "Số tiết lý thuyết";
+            this.colLT.FieldName = "SOTIET_LT";
+            this.colLT.MinWidth = 23;
+            this.colLT.Name = "colLT";
+            this.colLT.Visible = true;
+            this.colLT.VisibleIndex = 2;
+            this.colLT.Width = 87;
             // 
-            // colMAMHGV
+            // idSubject
             // 
-            this.colMAMHGV.Caption = "Mã môn học";
-            this.colMAMHGV.FieldName = "MAMH";
-            this.colMAMHGV.MinWidth = 25;
-            this.colMAMHGV.Name = "colMAMHGV";
-            this.colMAMHGV.OptionsColumn.AllowEdit = false;
-            this.colMAMHGV.Visible = true;
-            this.colMAMHGV.VisibleIndex = 2;
-            this.colMAMHGV.Width = 94;
+            this.idSubject.Caption = "Mã môn học";
+            this.idSubject.FieldName = "MAMH";
+            this.idSubject.MinWidth = 23;
+            this.idSubject.Name = "idSubject";
+            this.idSubject.Visible = true;
+            this.idSubject.VisibleIndex = 0;
+            this.idSubject.Width = 87;
+            // 
+            // colTH
+            // 
+            this.colTH.Caption = "Số tiết thực hành";
+            this.colTH.FieldName = "SOTIET_TH";
+            this.colTH.MinWidth = 25;
+            this.colTH.Name = "colTH";
+            this.colTH.Visible = true;
+            this.colTH.VisibleIndex = 3;
+            this.colTH.Width = 94;
+            // 
+            // colSubjectName
+            // 
+            this.colSubjectName.Caption = "Tên Môn học";
+            this.colSubjectName.FieldName = "TENMH";
+            this.colSubjectName.MinWidth = 23;
+            this.colSubjectName.Name = "colSubjectName";
+            this.colSubjectName.Visible = true;
+            this.colSubjectName.VisibleIndex = 1;
+            this.colSubjectName.Width = 87;
             // 
             // barManager
             // 
@@ -371,92 +399,6 @@ namespace StudentManagement
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
             // 
-            // gcSubject
-            // 
-            this.gcSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcSubject.DataSource = this.dSSPCreditClass;
-            this.gcSubject.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gcSubject.Location = new System.Drawing.Point(2, 2);
-            this.gcSubject.MainView = this.gvSubject;
-            this.gcSubject.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gcSubject.MenuManager = this.barManager;
-            this.gcSubject.Name = "gcSubject";
-            this.gcSubject.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.rilkMAMH,
-            this.rilkMAGV});
-            this.gcSubject.Size = new System.Drawing.Size(955, 287);
-            this.gcSubject.TabIndex = 0;
-            this.gcSubject.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvSubject});
-            this.gcSubject.Click += new System.EventHandler(this.gcCreditClass_Click);
-            // 
-            // dSSPCreditClass
-            // 
-            this.dSSPCreditClass.DataMember = "SP_DS_LopTinChi";
-            // 
-            // gvSubject
-            // 
-            this.gvSubject.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colLT,
-            this.idSubject,
-            this.colTH,
-            this.colSubjectName});
-            this.gvSubject.DetailHeight = 294;
-            this.gvSubject.FixedLineWidth = 1;
-            this.gvSubject.GridControl = this.gcSubject;
-            this.gvSubject.Name = "gvSubject";
-            this.gvSubject.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
-            this.gvSubject.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.gvSubject.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvCreditClass_RowClick);
-            this.gvSubject.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvCreditClass_InitNewRow);
-            this.gvSubject.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCreditClass_FocusedRowChanged);
-            this.gvSubject.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanged);
-            this.gvSubject.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanging);
-            this.gvSubject.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvCreditClass_ValidateRow);
-            this.gvSubject.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gvCreditClass_ValidatingEditor);
-            // 
-            // colLT
-            // 
-            this.colLT.Caption = "Số tiết lý thuyết";
-            this.colLT.FieldName = "SOTIET_LT";
-            this.colLT.MinWidth = 23;
-            this.colLT.Name = "colLT";
-            this.colLT.Visible = true;
-            this.colLT.VisibleIndex = 2;
-            this.colLT.Width = 87;
-            // 
-            // idSubject
-            // 
-            this.idSubject.Caption = "Mã môn học";
-            this.idSubject.FieldName = "MAMH";
-            this.idSubject.MinWidth = 23;
-            this.idSubject.Name = "idSubject";
-            this.idSubject.Visible = true;
-            this.idSubject.VisibleIndex = 0;
-            this.idSubject.Width = 87;
-            // 
-            // colTH
-            // 
-            this.colTH.Caption = "Số tiết thực hành";
-            this.colTH.FieldName = "SOTIET_TH";
-            this.colTH.MinWidth = 25;
-            this.colTH.Name = "colTH";
-            this.colTH.Visible = true;
-            this.colTH.VisibleIndex = 3;
-            this.colTH.Width = 94;
-            // 
-            // colSubjectName
-            // 
-            this.colSubjectName.Caption = "Tên Môn học";
-            this.colSubjectName.FieldName = "TENMH";
-            this.colSubjectName.MinWidth = 23;
-            this.colSubjectName.Name = "colSubjectName";
-            this.colSubjectName.Visible = true;
-            this.colSubjectName.VisibleIndex = 1;
-            this.colSubjectName.Width = 87;
-            // 
             // rilkMAMH
             // 
             this.rilkMAMH.AutoHeight = false;
@@ -484,6 +426,90 @@ namespace StudentManagement
             this.rilkMAGV.NullText = "";
             this.rilkMAGV.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.rilkMAGV.ValueMember = "MAGV";
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.gcGiangVien);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupControl1.Location = new System.Drawing.Point(2, 288);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(955, 252);
+            this.groupControl1.TabIndex = 2;
+            this.groupControl1.Text = "Giảng viên";
+            // 
+            // gcGiangVien
+            // 
+            this.gcGiangVien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcGiangVien.Location = new System.Drawing.Point(2, 28);
+            this.gcGiangVien.MainView = this.gvGiangVien;
+            this.gcGiangVien.MenuManager = this.barManager;
+            this.gcGiangVien.Name = "gcGiangVien";
+            this.gcGiangVien.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.grkGiangVien});
+            this.gcGiangVien.Size = new System.Drawing.Size(951, 222);
+            this.gcGiangVien.TabIndex = 1;
+            this.gcGiangVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvGiangVien});
+            this.gcGiangVien.Click += new System.EventHandler(this.gcGiangVien_Click);
+            // 
+            // gvGiangVien
+            // 
+            this.gvGiangVien.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMAGV,
+            this.colTENGV,
+            this.colMAMHGV});
+            this.gvGiangVien.GridControl = this.gcGiangVien;
+            this.gvGiangVien.Name = "gvGiangVien";
+            this.gvGiangVien.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gvGiangVien.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvGiangVien_InitNewRow);
+            this.gvGiangVien.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvGiangVien_ValidateRow);
+            // 
+            // colMAGV
+            // 
+            this.colMAGV.Caption = "Mã giảng viên";
+            this.colMAGV.ColumnEdit = this.grkGiangVien;
+            this.colMAGV.FieldName = "MAGV";
+            this.colMAGV.MinWidth = 25;
+            this.colMAGV.Name = "colMAGV";
+            this.colMAGV.Visible = true;
+            this.colMAGV.VisibleIndex = 0;
+            this.colMAGV.Width = 94;
+            // 
+            // grkGiangVien
+            // 
+            this.grkGiangVien.AutoHeight = false;
+            this.grkGiangVien.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.grkGiangVien.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MAGV", "Mã giảng viên"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HOTEN", "Họ và tên")});
+            this.grkGiangVien.DisplayMember = "MAGV";
+            this.grkGiangVien.Name = "grkGiangVien";
+            this.grkGiangVien.NullText = "";
+            this.grkGiangVien.ValueMember = "MAGV";
+            this.grkGiangVien.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.grkGiangVien_EditValueChanging);
+            // 
+            // colTENGV
+            // 
+            this.colTENGV.Caption = "Họ và tên";
+            this.colTENGV.FieldName = "HOTEN";
+            this.colTENGV.MinWidth = 25;
+            this.colTENGV.Name = "colTENGV";
+            this.colTENGV.OptionsColumn.AllowEdit = false;
+            this.colTENGV.Visible = true;
+            this.colTENGV.VisibleIndex = 1;
+            this.colTENGV.Width = 94;
+            // 
+            // colMAMHGV
+            // 
+            this.colMAMHGV.Caption = "Mã môn học";
+            this.colMAMHGV.FieldName = "MAMH";
+            this.colMAMHGV.MinWidth = 25;
+            this.colMAMHGV.Name = "colMAMHGV";
+            this.colMAMHGV.OptionsColumn.AllowEdit = false;
+            this.colMAMHGV.Visible = true;
+            this.colMAMHGV.VisibleIndex = 2;
+            this.colMAMHGV.Width = 94;
             // 
             // bSSubject
             // 
@@ -851,20 +877,24 @@ namespace StudentManagement
             this.Size = new System.Drawing.Size(959, 643);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcGiangVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvGiangVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grkGiangVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcSubject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSSPCreditClass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSubject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkBranch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcSubject)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSSPCreditClass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvSubject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rilkMAMH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rilkMAGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcGiangVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvGiangVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grkGiangVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSTeacher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSSubject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bSRegister)).EndInit();
@@ -954,5 +984,7 @@ namespace StudentManagement
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit grkGiangVien;
         private DevExpress.XtraGrid.Columns.GridColumn colTENGV;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMHGV;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
     }
 }

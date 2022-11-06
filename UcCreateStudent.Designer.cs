@@ -32,6 +32,7 @@ namespace StudentManagement
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcCreateStudent));
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gcCreditClass = new DevExpress.XtraGrid.GridControl();
             this.dSSPCreditClass = new System.Windows.Forms.BindingSource(this.components);
             this.gvCreditClass = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -106,6 +107,8 @@ namespace StudentManagement
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcCreditClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSSPCreditClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).BeginInit();
@@ -133,7 +136,7 @@ namespace StudentManagement
             // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.gcCreditClass);
+            this.panelControl2.Controls.Add(this.groupControl1);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 61);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -141,12 +144,22 @@ namespace StudentManagement
             this.panelControl2.Size = new System.Drawing.Size(1150, 542);
             this.panelControl2.TabIndex = 6;
             // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.gcCreditClass);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(2, 2);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(1146, 538);
+            this.groupControl1.TabIndex = 1;
+            this.groupControl1.Text = "Sinh viên";
+            // 
             // gcCreditClass
             // 
             this.gcCreditClass.DataSource = this.dSSPCreditClass;
             this.gcCreditClass.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcCreditClass.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gcCreditClass.Location = new System.Drawing.Point(2, 2);
+            this.gcCreditClass.Location = new System.Drawing.Point(2, 28);
             this.gcCreditClass.MainView = this.gvCreditClass;
             this.gcCreditClass.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gcCreditClass.MenuManager = this.barManager;
@@ -155,11 +168,10 @@ namespace StudentManagement
             this.rilkLOP,
             this.rilkMAGV,
             this.grkCN});
-            this.gcCreditClass.Size = new System.Drawing.Size(1146, 538);
+            this.gcCreditClass.Size = new System.Drawing.Size(1142, 508);
             this.gcCreditClass.TabIndex = 0;
             this.gcCreditClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCreditClass});
-            this.gcCreditClass.Click += new System.EventHandler(this.gcCreditClass_Click);
             // 
             // dSSPCreditClass
             // 
@@ -867,6 +879,8 @@ namespace StudentManagement
             this.Size = new System.Drawing.Size(1150, 643);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcCreditClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSSPCreditClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).EndInit();
@@ -972,5 +986,6 @@ namespace StudentManagement
         private DevExpress.XtraGrid.Columns.GridColumn KHOAHOC;
         private DevExpress.XtraGrid.Columns.GridColumn colCN;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit grkCN;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
     }
 }

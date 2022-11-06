@@ -64,6 +64,8 @@ namespace StudentManagement
             this.DIEM_GK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DIEM_CK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDiemTK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkFaculty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxSchoolYear)).BeginInit();
@@ -74,6 +76,10 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcUpdateGrade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvUpdateGrade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // barManager1
@@ -264,24 +270,24 @@ namespace StudentManagement
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 50);
             this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.gcCreditClass);
+            this.splitContainerControl1.Panel1.Controls.Add(this.groupControl2);
             this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.gcUpdateGrade);
+            this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(725, 409);
-            this.splitContainerControl1.SplitterPosition = 166;
+            this.splitContainerControl1.SplitterPosition = 191;
             this.splitContainerControl1.TabIndex = 4;
             // 
             // gcCreditClass
             // 
             this.gcCreditClass.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcCreditClass.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gcCreditClass.Location = new System.Drawing.Point(0, 0);
+            this.gcCreditClass.Location = new System.Drawing.Point(2, 28);
             this.gcCreditClass.MainView = this.gvCreditClass;
             this.gcCreditClass.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gcCreditClass.MenuManager = this.barManager1;
             this.gcCreditClass.Name = "gcCreditClass";
-            this.gcCreditClass.Size = new System.Drawing.Size(725, 166);
+            this.gcCreditClass.Size = new System.Drawing.Size(721, 161);
             this.gcCreditClass.TabIndex = 1;
             this.gcCreditClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCreditClass});
@@ -371,12 +377,12 @@ namespace StudentManagement
             // 
             this.gcUpdateGrade.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcUpdateGrade.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gcUpdateGrade.Location = new System.Drawing.Point(0, 0);
+            this.gcUpdateGrade.Location = new System.Drawing.Point(2, 28);
             this.gcUpdateGrade.MainView = this.gvUpdateGrade;
             this.gcUpdateGrade.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gcUpdateGrade.MenuManager = this.barManager1;
             this.gcUpdateGrade.Name = "gcUpdateGrade";
-            this.gcUpdateGrade.Size = new System.Drawing.Size(725, 231);
+            this.gcUpdateGrade.Size = new System.Drawing.Size(721, 176);
             this.gcUpdateGrade.TabIndex = 0;
             this.gcUpdateGrade.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvUpdateGrade});
@@ -404,8 +410,6 @@ namespace StudentManagement
             this.MASV.FieldName = "MASV";
             this.MASV.MinWidth = 23;
             this.MASV.Name = "MASV";
-            this.MASV.Visible = true;
-            this.MASV.VisibleIndex = 0;
             this.MASV.Width = 87;
             // 
             // TENSV
@@ -415,7 +419,7 @@ namespace StudentManagement
             this.TENSV.MinWidth = 23;
             this.TENSV.Name = "TENSV";
             this.TENSV.Visible = true;
-            this.TENSV.VisibleIndex = 1;
+            this.TENSV.VisibleIndex = 0;
             this.TENSV.Width = 87;
             // 
             // DIEM_CC
@@ -425,7 +429,7 @@ namespace StudentManagement
             this.DIEM_CC.MinWidth = 23;
             this.DIEM_CC.Name = "DIEM_CC";
             this.DIEM_CC.Visible = true;
-            this.DIEM_CC.VisibleIndex = 2;
+            this.DIEM_CC.VisibleIndex = 1;
             this.DIEM_CC.Width = 87;
             // 
             // DIEM_GK
@@ -435,7 +439,7 @@ namespace StudentManagement
             this.DIEM_GK.MinWidth = 23;
             this.DIEM_GK.Name = "DIEM_GK";
             this.DIEM_GK.Visible = true;
-            this.DIEM_GK.VisibleIndex = 3;
+            this.DIEM_GK.VisibleIndex = 2;
             this.DIEM_GK.Width = 87;
             // 
             // DIEM_CK
@@ -445,7 +449,7 @@ namespace StudentManagement
             this.DIEM_CK.MinWidth = 23;
             this.DIEM_CK.Name = "DIEM_CK";
             this.DIEM_CK.Visible = true;
-            this.DIEM_CK.VisibleIndex = 4;
+            this.DIEM_CK.VisibleIndex = 3;
             this.DIEM_CK.Width = 87;
             // 
             // colDiemTK
@@ -458,8 +462,28 @@ namespace StudentManagement
             this.colDiemTK.OptionsColumn.AllowEdit = false;
             this.colDiemTK.Tag = 0D;
             this.colDiemTK.Visible = true;
-            this.colDiemTK.VisibleIndex = 5;
+            this.colDiemTK.VisibleIndex = 4;
             this.colDiemTK.Width = 94;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.gcUpdateGrade);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(725, 206);
+            this.groupControl1.TabIndex = 1;
+            this.groupControl1.Text = "Điểm";
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.gcCreditClass);
+            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl2.Location = new System.Drawing.Point(0, 0);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(725, 191);
+            this.groupControl2.TabIndex = 2;
+            this.groupControl2.Text = "Lớp tín chỉ";
             // 
             // ucUpdateGrade
             // 
@@ -483,6 +507,10 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcUpdateGrade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvUpdateGrade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,5 +552,7 @@ namespace StudentManagement
         private DevExpress.XtraGrid.Columns.GridColumn NHOM;
         private DevExpress.XtraGrid.Columns.GridColumn TENGV;
         private DevExpress.XtraGrid.Columns.GridColumn colDiemTK;
+        private GroupControl groupControl2;
+        private GroupControl groupControl1;
     }
 }
