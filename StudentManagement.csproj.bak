@@ -57,27 +57,30 @@
     </Reference>
     <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.DataAccess.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v20.1.Export, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v20.1.UI, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGauges.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.CodeParser.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v20.1.Extensions, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -109,9 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\SQLFactory.cs" />
-    <Compile Include="FormCreditClass.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FormCreditClass.cs" />
     <Compile Include="FormCreditClass.Designer.cs">
       <DependentUpon>FormCreditClass.cs</DependentUpon>
     </Compile>
@@ -139,22 +140,16 @@
     <Compile Include="FormPrintStudentTranscripts.Designer.cs">
       <DependentUpon>FormPrintStudentTranscripts.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormReportStudentCreditClass.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FormReportStudentCreditClass.cs" />
     <Compile Include="FormReportStudentCreditClass.Designer.cs">
       <DependentUpon>FormReportStudentCreditClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormReportListStudentByLop.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FormReportListStudentByLop.cs" />
     <Compile Include="FormReportListStudentByLop.Designer.cs">
       <DependentUpon>FormReportListStudentByLop.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\ConvertMoney.cs" />
-    <Compile Include="FormPrintDiemLTC.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FormPrintDiemLTC.cs" />
     <Compile Include="FormPrintDiemLTC.Designer.cs">
       <DependentUpon>FormPrintDiemLTC.cs</DependentUpon>
     </Compile>
@@ -222,9 +217,7 @@
     <Compile Include="ReportSudentInCreditClass.Designer.cs">
       <DependentUpon>ReportSudentInCreditClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormReportSumaryFinal.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FormReportSumaryFinal.cs" />
     <Compile Include="FormReportSumaryFinal.Designer.cs">
       <DependentUpon>FormReportSumaryFinal.cs</DependentUpon>
     </Compile>
@@ -248,57 +241,39 @@
     <Compile Include="Repositories\SinhVienDAL.cs" />
     <Compile Include="Repositories\SupportDAL.cs" />
     <Compile Include="Repositories\UserDAL.cs" />
-    <Compile Include="FormAddLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FormAddLogin.cs" />
     <Compile Include="FormAddLogin.Designer.cs">
       <DependentUpon>FormAddLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCAddLogin.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="UCAddLogin.cs" />
     <Compile Include="UCAddLogin.Designer.cs">
       <DependentUpon>UCAddLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="UcCreateLecturers.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="UcCreateLecturers.cs" />
     <Compile Include="UcCreateLecturers.Designer.cs">
       <DependentUpon>UcCreateLecturers.cs</DependentUpon>
     </Compile>
-    <Compile Include="UcCreateSubject.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="UcCreateSubject.cs" />
     <Compile Include="UcCreateSubject.Designer.cs">
       <DependentUpon>UcCreateSubject.cs</DependentUpon>
     </Compile>
-    <Compile Include="UcCreateClass.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="UcCreateClass.cs" />
     <Compile Include="UcCreateClass.Designer.cs">
       <DependentUpon>UcCreateClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="UcCreateStudent.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="UcCreateStudent.cs" />
     <Compile Include="UcCreateStudent.Designer.cs">
       <DependentUpon>UcCreateStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="UcCreateLecturersCreditClass.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="UcCreateLecturersCreditClass.cs" />
     <Compile Include="UcCreateLecturersCreditClass.Designer.cs">
       <DependentUpon>UcCreateLecturersCreditClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="UcCreditClassCalendar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="UcCreditClassCalendar.cs" />
     <Compile Include="UcCreditClassCalendar.Designer.cs">
       <DependentUpon>UcCreditClassCalendar.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCRegisterCreditClass.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="UCRegisterCreditClass.cs" />
     <Compile Include="UCRegisterCreditClass.Designer.cs">
       <DependentUpon>UCRegisterCreditClass.cs</DependentUpon>
     </Compile>
@@ -308,9 +283,7 @@
     <Compile Include="ReportDiemLTC.Designer.cs">
       <DependentUpon>ReportDiemLTC.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucUpdateGrade.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="ucUpdateGrade.cs" />
     <Compile Include="ucUpdateGrade.Designer.cs">
       <DependentUpon>ucUpdateGrade.cs</DependentUpon>
     </Compile>
