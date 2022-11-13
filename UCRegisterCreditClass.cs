@@ -23,7 +23,7 @@ namespace StudentManagement
         private LopTinChiDAL _lopTinChiDAL;
         private DangKyDAL _dangKyDAL;
         private List<LOPTINCHI> _lopTinchiDaDangKy;
-        
+        private KYNIENKHOA knk;
         public UCRegisterCreditClass()
         {
             InitializeComponent();
@@ -65,7 +65,7 @@ namespace StudentManagement
         {
             string nienKhoa = bESchoolYear.EditValue as string;
             int hocKy = Convert.ToInt32(bESemester.EditValue);
-            KYNIENKHOA knk = new KyNienKhoaDAL().GetNienKhoaByAny(nienKhoa, hocKy).Data;
+            knk = new KyNienKhoaDAL().GetNienKhoaByAny(nienKhoa, hocKy).Data;
             if (knk.THOIGIAN_BDDK > DateTime.Now || knk.THOIGIAN_KTDK < DateTime.Now)
             {
                 if(knk.THOIGIAN_BDDK > DateTime.Now)
@@ -175,7 +175,7 @@ namespace StudentManagement
 
         private void Button_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            int maltc = (int)gvCreditClass.GetRowCellValue(gvRegister.FocusedRowHandle,"MALTC");
+            int maltc = (int)gvRegister.GetRowCellValue(gvRegister.FocusedRowHandle,"MALTC");
             ChangeCheckState(maltc, false);
             gvRegister.DeleteRow(gvRegister.FocusedRowHandle);
             
@@ -183,14 +183,21 @@ namespace StudentManagement
 
         private void Edit_CheckedChanged(object sender, EventArgs e)
         {
-            
+            GridView view = sender as GridView;
             
             if((bool)gvCreditClass.GetRowCellValue(gvCreditClass.FocusedRowHandle, "CHON"))
             {
                 gvCreditClass.SetRowCellValue(gvCreditClass.FocusedRowHandle, "CHON", false);
-            }else
+                gvCreditClass.SetRowCellValue(gvCreditClass.FocusedRowHandle, "CHON", false);
+                ChangeLocked((int)gvCreditClass.GetRowCellValue(gvCreditClass.FocusedRowHandle, "MALTC")
+                    , (string)gvCreditClass.GetRowCellValue(gvCreditClass.FocusedRowHandle, "MAMH"), false);
+            }
+            else
             {
                 gvCreditClass.SetRowCellValue(gvCreditClass.FocusedRowHandle, "CHON", true);
+                ChangeLocked((int)gvCreditClass.GetRowCellValue(gvCreditClass.FocusedRowHandle, "MALTC"),
+                    (string)gvCreditClass.GetRowCellValue(gvCreditClass.FocusedRowHandle, "MAMH"),true);
+                gvCreditClass.SetRowCellValue(gvCreditClass.FocusedRowHandle, "LOCKED", false);
             }
 
             LOPTINCHI lOPTINCHI = (LOPTINCHI)gvCreditClass.GetRow(gvCreditClass.FocusedRowHandle);
@@ -231,9 +238,24 @@ namespace StudentManagement
                 if(maltcCurrent == maltc)
                 {
                     gvCreditClass.SetRowCellValue(i, "CHON",state);
+                    gvCreditClass.SetRowCellValue(i, "LOCKED", state?false:false);
+                    ChangeLocked(maltc, (string)gvCreditClass.GetRowCellValue(i, "MAMH"), state);
                     return;
                 }
             }
+        }
+        void ChangeLocked(int maltc,string mamh, bool state, bool change = true)
+        {
+            for (int i = 0; i < gvCreditClass.DataRowCount; i++)
+            {
+                int maltcCurrent = (int)gvCreditClass.GetRowCellValue(i, "MALTC");
+                string mamhCurrent = (string)gvCreditClass.GetRowCellValue(i, "MAMH");
+                if (maltcCurrent != maltc && mamhCurrent.Trim() == mamh.Trim())
+                {
+                    gvCreditClass.SetRowCellValue(i, "LOCKED", state);
+                }
+            }
+
         }
 
         private void beSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -247,7 +269,7 @@ namespace StudentManagement
                 MALTC = x.MALTC
 
             }).ToList();
-            var res = new DangKyDAL().UpdateDangKy(listUpdate, Program.username);
+            var res = new DangKyDAL().UpdateDangKy(listUpdate, Program.username, knk.MANK);
             if (res.Response.State == ResponseState.Success)
             {
                 Program.formMain.Notify("Lưu thành công");
@@ -292,6 +314,14 @@ namespace StudentManagement
         {
             e.RelationCount = 1;
 
+        }
+
+        private void gvCreditClass_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            if(e.Column.FieldName == "CHON")
+            {
+
+            }
         }
     }
 }

@@ -12,15 +12,16 @@ namespace StudentManagement.Repositories
 {
     public class DangKyDAL
     {
-        public DataResponse<bool> UpdateDangKy(List<UpdateDangKy> list, string masv)
+        public DataResponse<bool> UpdateDangKy(List<UpdateDangKy> list, string masv, string maNK)
         {
             var conn = SQLFactory.GetConnection();
             try
             {
-                string command = "exec [dbo].[SP_UPDATE_DangKy] @DK, @masv";
+                string command = "exec [dbo].[SP_UPDATE_DangKy] @DK, @masv, @maNK";
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.AddTable("@DK", "[dbo].[TYPE_UPDATE_DANGKY]", list);
                 parameters.Add("@masv", masv);
+                parameters.Add("@maNK", maNK);
                 conn.Execute(command, parameters);
                 return new DataResponeSuccess<bool>(true);
             }

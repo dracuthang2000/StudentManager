@@ -24,6 +24,7 @@
         public string MANV { get; set; }
         public string MANK { get; set; }
         public bool CHON { get; set; }
+        public bool LOCKED { get; set; }
         public string TRANGTHAI { get; set; }
 
         public string GUID { get; set; }

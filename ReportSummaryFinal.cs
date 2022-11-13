@@ -21,6 +21,7 @@ namespace StudentManagement
 
         private void xrCrossTab1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
+            XtraReport report = (XtraReport)sender;
             
         }
 

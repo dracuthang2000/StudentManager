@@ -31,6 +31,7 @@ namespace StudentManagement
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.Utils.AppearanceObject appearanceObject1 = new DevExpress.Utils.AppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCRegisterCreditClass));
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTHU = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,6 +46,8 @@ namespace StudentManagement
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CHON = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOSVTOIDA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLocked = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bESchoolYear = new DevExpress.XtraBars.BarEditItem();
@@ -74,6 +77,8 @@ namespace StudentManagement
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colXOA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.disabledCellEvents1 = new DevExpress.Utils.Behaviors.Common.DisabledCellEvents(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCreditClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).BeginInit();
@@ -88,6 +93,7 @@ namespace StudentManagement
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvRegister)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView1
@@ -153,6 +159,8 @@ namespace StudentManagement
             // 
             // gvCreditClass
             // 
+            this.behaviorManager1.SetBehaviors(this.gvCreditClass, new DevExpress.Utils.Behaviors.Behavior[] {
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.DisabledCellBehavior.Create(typeof(DevExpress.XtraGrid.Extensions.GridViewDisabledCellSource), "[LOCKED] = True", appearanceObject1, this.disabledCellEvents1)))});
             this.gvCreditClass.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -160,7 +168,9 @@ namespace StudentManagement
             this.gridColumn4,
             this.gridColumn5,
             this.gridColumn6,
-            this.CHON});
+            this.CHON,
+            this.colSOSVTOIDA,
+            this.colLocked});
             this.gvCreditClass.DetailHeight = 295;
             this.gvCreditClass.GridControl = this.gcCreditClass;
             this.gvCreditClass.Name = "gvCreditClass";
@@ -171,6 +181,7 @@ namespace StudentManagement
             this.gvCreditClass.MasterRowGetChildList += new DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventHandler(this.gvCreditClass_MasterRowGetChildList);
             this.gvCreditClass.MasterRowGetRelationName += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.gvCreditClass_MasterRowGetRelationName);
             this.gvCreditClass.MasterRowGetRelationCount += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventHandler(this.gvCreditClass_MasterRowGetRelationCount);
+            this.gvCreditClass.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvCreditClass_CellValueChanged);
             // 
             // gridColumn1
             // 
@@ -179,8 +190,6 @@ namespace StudentManagement
             this.gridColumn1.MinWidth = 23;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
             this.gridColumn1.Width = 95;
             // 
             // gridColumn2
@@ -191,7 +200,7 @@ namespace StudentManagement
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.VisibleIndex = 0;
             this.gridColumn2.Width = 95;
             // 
             // gridColumn3
@@ -202,7 +211,7 @@ namespace StudentManagement
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.VisibleIndex = 1;
             this.gridColumn3.Width = 95;
             // 
             // gridColumn4
@@ -213,7 +222,7 @@ namespace StudentManagement
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.VisibleIndex = 2;
             this.gridColumn4.Width = 95;
             // 
             // gridColumn5
@@ -224,7 +233,7 @@ namespace StudentManagement
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.VisibleIndex = 3;
             this.gridColumn5.Width = 92;
             // 
             // gridColumn6
@@ -235,7 +244,7 @@ namespace StudentManagement
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.VisibleIndex = 4;
             this.gridColumn6.Width = 96;
             // 
             // CHON
@@ -248,6 +257,26 @@ namespace StudentManagement
             this.CHON.Visible = true;
             this.CHON.VisibleIndex = 6;
             this.CHON.Width = 100;
+            // 
+            // colSOSVTOIDA
+            // 
+            this.colSOSVTOIDA.Caption = "Số SV tối đa";
+            this.colSOSVTOIDA.FieldName = "SOSVTOIDA";
+            this.colSOSVTOIDA.MinWidth = 25;
+            this.colSOSVTOIDA.Name = "colSOSVTOIDA";
+            this.colSOSVTOIDA.OptionsColumn.AllowEdit = false;
+            this.colSOSVTOIDA.Visible = true;
+            this.colSOSVTOIDA.VisibleIndex = 5;
+            this.colSOSVTOIDA.Width = 94;
+            // 
+            // colLocked
+            // 
+            this.colLocked.Caption = "Locked";
+            this.colLocked.FieldName = "LOCKED";
+            this.colLocked.MinWidth = 25;
+            this.colLocked.Name = "colLocked";
+            this.colLocked.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
+            this.colLocked.Width = 94;
             // 
             // barManager1
             // 
@@ -509,8 +538,6 @@ namespace StudentManagement
             this.gridColumn7.MinWidth = 23;
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 0;
             this.gridColumn7.Width = 87;
             // 
             // gridColumn8
@@ -521,7 +548,7 @@ namespace StudentManagement
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 1;
+            this.gridColumn8.VisibleIndex = 0;
             this.gridColumn8.Width = 87;
             // 
             // gridColumn9
@@ -532,7 +559,7 @@ namespace StudentManagement
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 2;
+            this.gridColumn9.VisibleIndex = 1;
             this.gridColumn9.Width = 87;
             // 
             // gridColumn10
@@ -543,7 +570,7 @@ namespace StudentManagement
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 3;
+            this.gridColumn10.VisibleIndex = 2;
             this.gridColumn10.Width = 87;
             // 
             // gridColumn11
@@ -554,7 +581,7 @@ namespace StudentManagement
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.OptionsColumn.AllowEdit = false;
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 4;
+            this.gridColumn11.VisibleIndex = 3;
             this.gridColumn11.Width = 87;
             // 
             // colXOA
@@ -565,7 +592,7 @@ namespace StudentManagement
             this.colXOA.Name = "colXOA";
             this.colXOA.UnboundType = DevExpress.Data.UnboundColumnType.Object;
             this.colXOA.Visible = true;
-            this.colXOA.VisibleIndex = 6;
+            this.colXOA.VisibleIndex = 5;
             this.colXOA.Width = 87;
             // 
             // gridColumn12
@@ -576,7 +603,7 @@ namespace StudentManagement
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.OptionsColumn.AllowEdit = false;
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 5;
+            this.gridColumn12.VisibleIndex = 4;
             this.gridColumn12.Width = 87;
             // 
             // UCRegisterCreditClass
@@ -605,6 +632,7 @@ namespace StudentManagement
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvRegister)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -654,5 +682,9 @@ namespace StudentManagement
         private DevExpress.XtraGrid.Columns.GridColumn colTHU;
         private DevExpress.XtraGrid.Columns.GridColumn colTBD;
         private DevExpress.XtraGrid.Columns.GridColumn colTKT;
+        private DevExpress.XtraGrid.Columns.GridColumn colSOSVTOIDA;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraGrid.Columns.GridColumn colLocked;
+        private DevExpress.Utils.Behaviors.Common.DisabledCellEvents disabledCellEvents1;
     }
 }
