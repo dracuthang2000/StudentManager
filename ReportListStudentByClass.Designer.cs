@@ -88,7 +88,7 @@ namespace StudentManagement
             this.xrLabel7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?tenKhoa")});
             this.xrLabel7.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(288.3057F, 33.41667F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(278.3057F, 43.41667F);
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -103,7 +103,7 @@ namespace StudentManagement
             this.xrLabel9.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?tenlop")});
             this.xrLabel9.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(288.3057F, 79.41668F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(278.3057F, 89.41668F);
             this.xrLabel9.Multiline = true;
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -118,7 +118,7 @@ namespace StudentManagement
             this.xrLabel8.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?malop")});
             this.xrLabel8.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(288.3057F, 56.41668F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(278.3057F, 66.41668F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -131,7 +131,7 @@ namespace StudentManagement
             // xrLabel4
             // 
             this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold);
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(195.8333F, 56.41668F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(185.8333F, 66.41668F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -144,7 +144,7 @@ namespace StudentManagement
             // xrLabel3
             // 
             this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(195.8333F, 79.41668F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(185.8333F, 89.41668F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -157,7 +157,7 @@ namespace StudentManagement
             // xrLabel2
             // 
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(195.8333F, 33.41667F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(185.8333F, 43.41667F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -170,7 +170,7 @@ namespace StudentManagement
             // xrLabel1
             // 
             this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);

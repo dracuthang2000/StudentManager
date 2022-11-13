@@ -122,13 +122,12 @@ namespace StudentManagement
         private void pgvPermission()
         {
             rbgSinhVien.Visible = false;
-            rbgDSHocPhi.Visible = false;
+            bbNhapDiem.Visibility = BarItemVisibility.Never;
         }
         
         private void khoaPermission()
         {
             rbgSinhVien.Visible = false;
-            rbgDSHocPhi.Visible = false;
             ribbonPageGroup5.Visible = false;
             ribbonPageGroup16.Visible = false;
             bbMonHoc.Visible = false;

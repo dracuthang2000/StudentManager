@@ -22,5 +22,9 @@ namespace StudentManagement.Model
         public string HOTEN { get; set; }
         public string MALOP { get; set; }
         public string TENLOP { get; set; }
+
+        public string NIENKHOA { get; set; }
+
+        public int HOCKY { get; set; }
     }
 }

@@ -251,8 +251,6 @@ namespace StudentManagement
             this.colMALTC.MinWidth = 23;
             this.colMALTC.Name = "colMALTC";
             this.colMALTC.OptionsColumn.AllowEdit = false;
-            this.colMALTC.Visible = true;
-            this.colMALTC.VisibleIndex = 0;
             this.colMALTC.Width = 87;
             // 
             // colNIENKHOA
@@ -273,7 +271,7 @@ namespace StudentManagement
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.OptionsColumn.AllowEdit = false;
             this.colMAMH.Visible = true;
-            this.colMAMH.VisibleIndex = 4;
+            this.colMAMH.VisibleIndex = 0;
             this.colMAMH.Width = 87;
             // 
             // rilkMAMH
@@ -298,7 +296,7 @@ namespace StudentManagement
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.OptionsColumn.AllowEdit = false;
             this.colTENMH.Visible = true;
-            this.colTENMH.VisibleIndex = 5;
+            this.colTENMH.VisibleIndex = 1;
             this.colTENMH.Width = 94;
             // 
             // colHOCKY
@@ -318,7 +316,7 @@ namespace StudentManagement
             this.SOSVTOIDA.Name = "SOSVTOIDA";
             this.SOSVTOIDA.OptionsColumn.AllowEdit = false;
             this.SOSVTOIDA.Visible = true;
-            this.SOSVTOIDA.VisibleIndex = 3;
+            this.SOSVTOIDA.VisibleIndex = 4;
             this.SOSVTOIDA.Width = 94;
             // 
             // colNHOM
@@ -329,7 +327,7 @@ namespace StudentManagement
             this.colNHOM.Name = "colNHOM";
             this.colNHOM.OptionsColumn.AllowEdit = false;
             this.colNHOM.Visible = true;
-            this.colNHOM.VisibleIndex = 1;
+            this.colNHOM.VisibleIndex = 2;
             this.colNHOM.Width = 87;
             // 
             // colSOSVTOITHIEU
@@ -340,7 +338,7 @@ namespace StudentManagement
             this.colSOSVTOITHIEU.Name = "colSOSVTOITHIEU";
             this.colSOSVTOITHIEU.OptionsColumn.AllowEdit = false;
             this.colSOSVTOITHIEU.Visible = true;
-            this.colSOSVTOITHIEU.VisibleIndex = 2;
+            this.colSOSVTOITHIEU.VisibleIndex = 3;
             this.colSOSVTOITHIEU.Width = 87;
             // 
             // colMAKHOA
@@ -369,7 +367,7 @@ namespace StudentManagement
             this.colHUYLOP.Name = "colHUYLOP";
             this.colHUYLOP.OptionsColumn.AllowEdit = false;
             this.colHUYLOP.Visible = true;
-            this.colHUYLOP.VisibleIndex = 6;
+            this.colHUYLOP.VisibleIndex = 5;
             this.colHUYLOP.Width = 87;
             // 
             // barManager

@@ -43,7 +43,9 @@ namespace StudentManagement
                 p.Visible = false;
 
             var res = lopDAL.GetListTongKetCuoiKhoa(malop);
-            report.InitData(res.Data);
+            var lstLop = (List<LOP>)rilkLop.DataSource;
+            string tenlop = lstLop.Single(l => l.MALOP.Trim() == malop.Trim()).TENLOP;
+            report.InitData(res.Data, malop,tenlop);
             docView.DocumentSource = report;
             report.CreateDocument();
         }

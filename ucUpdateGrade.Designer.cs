@@ -50,6 +50,7 @@ namespace StudentManagement
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.gcCreditClass = new DevExpress.XtraGrid.GridControl();
             this.gvCreditClass = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.MALTC = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -58,6 +59,7 @@ namespace StudentManagement
             this.MAGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NHOM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TENGV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gcUpdateGrade = new DevExpress.XtraGrid.GridControl();
             this.gvUpdateGrade = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.MASV = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,22 +68,20 @@ namespace StudentManagement
             this.DIEM_GK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DIEM_CK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDiemTK = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkFaculty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxSchoolYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcCreditClass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcUpdateGrade)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvUpdateGrade)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcCreditClass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcUpdateGrade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUpdateGrade)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -280,6 +280,16 @@ namespace StudentManagement
             this.splitContainerControl1.SplitterPosition = 191;
             this.splitContainerControl1.TabIndex = 4;
             // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.gcCreditClass);
+            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl2.Location = new System.Drawing.Point(0, 0);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(725, 191);
+            this.groupControl2.TabIndex = 2;
+            this.groupControl2.Text = "Lớp tín chỉ";
+            // 
             // gcCreditClass
             // 
             this.gcCreditClass.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -350,7 +360,7 @@ namespace StudentManagement
             this.MAGV.Name = "MAGV";
             this.MAGV.OptionsColumn.AllowEdit = false;
             this.MAGV.Visible = true;
-            this.MAGV.VisibleIndex = 3;
+            this.MAGV.VisibleIndex = 4;
             this.MAGV.Width = 87;
             // 
             // NHOM
@@ -361,7 +371,7 @@ namespace StudentManagement
             this.NHOM.Name = "NHOM";
             this.NHOM.OptionsColumn.AllowEdit = false;
             this.NHOM.Visible = true;
-            this.NHOM.VisibleIndex = 4;
+            this.NHOM.VisibleIndex = 3;
             this.NHOM.Width = 87;
             // 
             // TENGV
@@ -374,6 +384,16 @@ namespace StudentManagement
             this.TENGV.Visible = true;
             this.TENGV.VisibleIndex = 5;
             this.TENGV.Width = 87;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.gcUpdateGrade);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(725, 206);
+            this.groupControl1.TabIndex = 1;
+            this.groupControl1.Text = "Điểm";
             // 
             // gcUpdateGrade
             // 
@@ -467,26 +487,6 @@ namespace StudentManagement
             this.colDiemTK.VisibleIndex = 4;
             this.colDiemTK.Width = 94;
             // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.gcUpdateGrade);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(725, 206);
-            this.groupControl1.TabIndex = 1;
-            this.groupControl1.Text = "Điểm";
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.Controls.Add(this.gcCreditClass);
-            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(0, 0);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(725, 191);
-            this.groupControl2.TabIndex = 2;
-            this.groupControl2.Text = "Lớp tín chỉ";
-            // 
             // ucUpdateGrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -505,14 +505,14 @@ namespace StudentManagement
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcCreditClass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcUpdateGrade)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvUpdateGrade)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcCreditClass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCreditClass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcUpdateGrade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUpdateGrade)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

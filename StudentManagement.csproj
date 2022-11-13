@@ -413,24 +413,6 @@
       <DependentUpon>ucUpdateGrade.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\FormAddLogin.datasource" />
-    <None Include="Properties\DataSources\FormCreditClass.datasource" />
-    <None Include="Properties\DataSources\FormLogin.datasource" />
-    <None Include="Properties\DataSources\FormMain.datasource" />
-    <None Include="Properties\DataSources\FormPrintDiemLTC.datasource" />
-    <None Include="Properties\DataSources\FormPrintDiemSV.datasource" />
-    <None Include="Properties\DataSources\FormPrintStudentTranscripts.datasource" />
-    <None Include="Properties\DataSources\FormReportStudentCreditClass.datasource" />
-    <None Include="Properties\DataSources\FormReportSumaryFinal.datasource" />
-    <None Include="Properties\DataSources\Program.datasource" />
-    <None Include="Properties\DataSources\ReportCreditClass.datasource" />
-    <None Include="Properties\DataSources\ReportDiemLTC.datasource" />
-    <None Include="Properties\DataSources\ReportDiemSV.datasource" />
-    <None Include="Properties\DataSources\ReportStudentTranscripts.datasource" />
-    <None Include="Properties\DataSources\ReportSudentInCreditClass.datasource" />
-    <None Include="Properties\DataSources\ReportSummaryFinal.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Factories.SQLFactory.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Helper.ConvertMoney.datasource" />
     <None Include="Properties\DataSources\StudentManagement.Model.CHUYENNGANH.datasource" />
     <None Include="Properties\DataSources\StudentManagement.Model.DANGKY.datasource" />
     <None Include="Properties\DataSources\StudentManagement.Model.DataResponeFail`1[].datasource" />
@@ -468,33 +450,6 @@
     <None Include="Properties\DataSources\StudentManagement.Model.UPDATESINHVIEN.datasource" />
     <None Include="Properties\DataSources\StudentManagement.Model.UPDATE_CHITIET_LH.datasource" />
     <None Include="Properties\DataSources\StudentManagement.Model.UserInfo.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Properties.Resources.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Properties.Settings.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.AbsRepository.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.BaseDAl.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.ChuyenNganhDAL.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.DangKyDAL.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.GiangVienDAL.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.KyNienKhoaDAL.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.LichHocDAL.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.LopDAL.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.LopTinChiDAL.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.MonHocDAL.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.NhanVienDAL.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.SinhVienDAL.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.SupportDAL.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Repositories.UserDAL.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Undo.ActionUndo.datasource" />
-    <None Include="Properties\DataSources\StudentManagement.Undo.SUndo.datasource" />
-    <None Include="Properties\DataSources\UCAddLogin.datasource" />
-    <None Include="Properties\DataSources\UcCreateClass.datasource" />
-    <None Include="Properties\DataSources\UcCreateLecturers.datasource" />
-    <None Include="Properties\DataSources\UcCreateLecturersCreditClass.datasource" />
-    <None Include="Properties\DataSources\UcCreateStudent.datasource" />
-    <None Include="Properties\DataSources\UcCreateSubject.datasource" />
-    <None Include="Properties\DataSources\UcCreditClassCalendar.datasource" />
-    <None Include="Properties\DataSources\UCRegisterCreditClass.datasource" />
-    <None Include="Properties\DataSources\ucUpdateGrade.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

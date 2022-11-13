@@ -120,6 +120,53 @@ namespace StudentManagement.Repositories
                 conn.Close();
             }
         }
+
+        public DataResponse<bool> CheckSamePlan(string magv,int malh, string mank)
+        {
+            var conn = SQLFactory.GetConnection();
+            try
+            {
+                string command = "select [dbo].[CHECK_SAME_PLAN_WITH_NK] (@MAGV,@ID_LH,@MANK)";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@MAGV", magv);
+                parameters.Add("@ID_LH", malh);
+                parameters.Add("@MANK", mank);
+                var res = conn.ExecuteScalar<bool>(command, parameters);
+                return new DataResponeSuccess<bool>(res);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<bool>("Lỗi hệ thống");
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public DataResponse<Boolean> CheckGVPLanLTC(string magv, int maltc)
+        {
+            var conn = SQLFactory.GetConnection();
+            try
+            {
+                string command = "exec [dbo].[SP_CALL_CHECK_PLAN_GV_LTC] @maltc,@MAGV";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@maltc", maltc);
+                parameters.Add("@MAGV", magv);
+                var res = conn.ExecuteScalar<Boolean>(command, parameters);
+                return new DataResponeSuccess<Boolean>(res);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DataResponeFail<Boolean>("Lỗi hệ thống");
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 
        

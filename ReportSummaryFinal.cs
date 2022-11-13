@@ -14,15 +14,15 @@ namespace StudentManagement
         {
             InitializeComponent();
         }
-        public void InitData(List<TongKetCuoiKhoa> data)
+        public void InitData(List<TongKetCuoiKhoa> data,string maLop, string tenLop)
         {
             objectDataSource1.DataSource = data;
+            pMaLop.Value = maLop;
+            pTenLop.Value = tenLop;
         }
 
         private void xrCrossTab1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            XtraReport report = (XtraReport)sender;
-            
+        {            
         }
 
         private void ReportSummaryFinal_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
