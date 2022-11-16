@@ -174,5 +174,23 @@ namespace StudentManagement.Repositories
                 conn.Close();
             }
         }
+        public void updateHuyLop()
+        {
+            var conn = SQLFactory.GetConnection();
+            try
+            {
+                string command = "exec dbo.SP_UPDATE_HUYLOP";
+                DynamicParameters parameters = new DynamicParameters();
+                var data = conn.Query<LOPTINCHI>(command).ToList();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

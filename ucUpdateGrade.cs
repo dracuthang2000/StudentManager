@@ -220,28 +220,34 @@ namespace StudentManagement
 
         private void gvUpdateGrade_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
+           
+        }
+
+        private void gvUpdateGrade_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
             GridView gridView = sender as GridView;
-            if (gridView.GetRowCellValue(e.RowHandle, "DIEM_GK") !=null)
+
+            if (gridView.FocusedColumn.FieldName == "DIEM_GK" &&e.Value != null)
             {
-                if(float.Parse(gridView.GetRowCellValue(e.RowHandle, "DIEM_GK").ToString()) < 0 || float.Parse(gridView.GetRowCellValue(e.RowHandle, "DIEM_GK").ToString()) > 10)
+                if (float.Parse(e.Value.ToString()) < 0 || float.Parse(e.Value.ToString()) > 10)
                 {
                     e.ErrorText = "Điểm giữa kì >=0 và <=10";
                     e.Valid = false;
-                }                  
+                }
             }
 
-            if (gridView.GetRowCellValue(e.RowHandle, "DIEM_CC") != null)
+            if (gridView.FocusedColumn.FieldName == "DIEM_CC" && e.Value != null)
             {
-                if (float.Parse(gridView.GetRowCellValue(e.RowHandle, "DIEM_CC").ToString()) < 0 || float.Parse(gridView.GetRowCellValue(e.RowHandle, "DIEM_CC").ToString()) > 10)
+                if (float.Parse(e.Value.ToString()) < 0 || float.Parse(e.Value.ToString()) > 10)
                 {
                     e.ErrorText = "Điểm chuyên cần >=0 và <=10";
                     e.Valid = false;
                 }
             }
 
-            if (gridView.GetRowCellValue(e.RowHandle, "DIEM_CK") != null)
+            if (gridView.FocusedColumn.FieldName == "DIEM_CK" && e.Value != null)
             {
-                if (float.Parse(gridView.GetRowCellValue(e.RowHandle, "DIEM_CK").ToString()) < 0 || float.Parse(gridView.GetRowCellValue(e.RowHandle, "DIEM_CK").ToString()) > 10)
+                if (float.Parse(e.Value.ToString()) < 0 || float.Parse(e.Value.ToString()) > 10)
                 {
                     e.ErrorText = "Điểm cuối kì >=0 và <=10";
                     e.Valid = false;

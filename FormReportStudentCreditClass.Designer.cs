@@ -652,7 +652,7 @@ namespace StudentManagement
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.beNienKhoa, "", false, true, true, 93),
             new DevExpress.XtraBars.LinkPersistInfo(this.beHocKy),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.beMonHoc, "", false, true, true, 149),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.beNhom, "", false, true, true, 20),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Width, this.beNhom, "", false, true, true, 36),
             new DevExpress.XtraBars.LinkPersistInfo(this.beLoad, true)});
             this.previewBar3.OptionsBar.MultiLine = true;
             this.previewBar3.OptionsBar.UseWholeRow = true;

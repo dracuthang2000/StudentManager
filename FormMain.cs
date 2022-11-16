@@ -29,6 +29,7 @@ namespace StudentManagement
             InitializeComponent();
             //ShowFormLogin();
             Initial();
+            new Repositories.LopTinChiDAL().updateHuyLop();
 
         }
 

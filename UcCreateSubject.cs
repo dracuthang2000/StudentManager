@@ -331,6 +331,11 @@ namespace StudentManagement
                 {
                     e.Valid = false;
                     e.ErrorText = "Chỉ nhập số";
+                }else
+                if (Int32.Parse(e.Value as String) < 0)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Chỉ nhập số dương";
                 }
             }
 
@@ -341,6 +346,11 @@ namespace StudentManagement
                 {
                     e.Valid = false;
                     e.ErrorText = "Chỉ nhập số";
+                }else
+                if(Int32.Parse(e.Value as String) < 0)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Chỉ nhập số dương";
                 }
             }
             if (gridView.FocusedColumn.FieldName == "TENMH")

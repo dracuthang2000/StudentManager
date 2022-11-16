@@ -425,6 +425,7 @@ namespace StudentManagement
             this.gvUpdateGrade.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvUpdateGrade_FocusedRowChanged);
             this.gvUpdateGrade.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvUpdateGrade_CellValueChanged);
             this.gvUpdateGrade.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvUpdateGrade_ValidateRow);
+            this.gvUpdateGrade.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gvUpdateGrade_ValidatingEditor);
             // 
             // MASV
             // 
@@ -432,6 +433,9 @@ namespace StudentManagement
             this.MASV.FieldName = "MASV";
             this.MASV.MinWidth = 23;
             this.MASV.Name = "MASV";
+            this.MASV.OptionsColumn.AllowEdit = false;
+            this.MASV.Visible = true;
+            this.MASV.VisibleIndex = 0;
             this.MASV.Width = 87;
             // 
             // TENSV
@@ -441,7 +445,7 @@ namespace StudentManagement
             this.TENSV.MinWidth = 23;
             this.TENSV.Name = "TENSV";
             this.TENSV.Visible = true;
-            this.TENSV.VisibleIndex = 0;
+            this.TENSV.VisibleIndex = 1;
             this.TENSV.Width = 87;
             // 
             // DIEM_CC
@@ -451,7 +455,7 @@ namespace StudentManagement
             this.DIEM_CC.MinWidth = 23;
             this.DIEM_CC.Name = "DIEM_CC";
             this.DIEM_CC.Visible = true;
-            this.DIEM_CC.VisibleIndex = 1;
+            this.DIEM_CC.VisibleIndex = 2;
             this.DIEM_CC.Width = 87;
             // 
             // DIEM_GK
@@ -461,7 +465,7 @@ namespace StudentManagement
             this.DIEM_GK.MinWidth = 23;
             this.DIEM_GK.Name = "DIEM_GK";
             this.DIEM_GK.Visible = true;
-            this.DIEM_GK.VisibleIndex = 2;
+            this.DIEM_GK.VisibleIndex = 3;
             this.DIEM_GK.Width = 87;
             // 
             // DIEM_CK
@@ -471,7 +475,7 @@ namespace StudentManagement
             this.DIEM_CK.MinWidth = 23;
             this.DIEM_CK.Name = "DIEM_CK";
             this.DIEM_CK.Visible = true;
-            this.DIEM_CK.VisibleIndex = 3;
+            this.DIEM_CK.VisibleIndex = 4;
             this.DIEM_CK.Width = 87;
             // 
             // colDiemTK
@@ -484,7 +488,7 @@ namespace StudentManagement
             this.colDiemTK.OptionsColumn.AllowEdit = false;
             this.colDiemTK.Tag = 0D;
             this.colDiemTK.Visible = true;
-            this.colDiemTK.VisibleIndex = 4;
+            this.colDiemTK.VisibleIndex = 5;
             this.colDiemTK.Width = 94;
             // 
             // ucUpdateGrade
