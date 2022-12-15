@@ -421,6 +421,12 @@ namespace StudentManagement
                 e.Valid = false;
                 e.ErrorText = "The value is not correct! ";
             }
+            if (gridView.GetRowCellValue(e.RowHandle, colCN) == null)
+            {
+                gridView.SetColumnError(colCN, "Mã chuyên ngành không trống");
+                e.Valid = false;
+                e.ErrorText = "The value is not correct! ";
+            }
         }
     }
 }
